@@ -459,41 +459,40 @@ a {
     /* Esconde os itens do menu e botão no celular */
     .nav-links, .navbar .btn-outline { display: none; }
     
-    /* Navbar blindada e sem respiros desnecessários embaixo */
+    /* Remove o fixo, o fundo branco e o efeito de vidro fosco que estava cortando o texto */
     .navbar { 
-        position: relative; 
-        padding: 1rem 0 0 0; 
-        border-bottom: none; 
-        background-color: transparent; 
+        position: static !important; /* Faz a barra seguir o fluxo normal, sem flutuar */
+        padding: 2rem 0 0 0 !important; 
+        background: transparent !important; 
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important; /* Essencial para o iPhone */
         box-shadow: none !important; 
-        margin-bottom: 0;
     }
     
-    /* Centraliza a logo */
     .nav-container { justify-content: center; }
     
-    /* LOGO: MAIOR E COM TRANSPARÊNCIA FORÇADA PARA IPHONE/SAFARI */
+    /* A MÁGICA DA TRANSPARÊNCIA NO IPHONE: Aplicada no container da imagem */
+    .logo {
+        display: block;
+        mix-blend-mode: multiply !important;
+        -webkit-mix-blend-mode: multiply !important;
+    }
+
     .logo img { 
-        height: 80px !important; 
-        mix-blend-mode: multiply !important; 
-        -webkit-mix-blend-mode: multiply !important; /* O comando de mestre para o iPhone */
+        height: 65px !important; /* Tamanho imponente, mas que não quebra o layout */
         display: block;
         margin: 0 auto;
     }
 
-    /* ZERO ESPAÇO: Cola a Hero Section na Logo */
+    /* Fluxo natural da sessão, perfeitamente próximo à logo, sem sobrepor */
     .hero { 
-        padding-top: 0 !important; 
-        min-height: auto; 
-        padding-bottom: 3rem;
-        margin-top: -15px; /* Puxa a sessão inteira para cima, colando na logo */
+        padding-top: 1.5rem !important; 
+        min-height: auto !important; 
+        padding-bottom: 3rem !important;
+        margin-top: 0 !important; /* Removemos a margem negativa causadora do problema */
     } 
     
-    .badge {
-        margin-top: 0;
-    }
-    
-    .headline { font-size: 2.2rem; margin-top: 1rem; }
+    .headline { font-size: 2.2rem; margin-top: 0; }
     
     /* Fonte da descrição mais refinada e objetiva */
     .subheadline { 
