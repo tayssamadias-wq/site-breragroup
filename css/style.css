@@ -455,9 +455,10 @@ a {
     .step-arrow { transform: rotate(90deg); }
 }
 @media (max-width: 768px) {
+    .navbar { display: none; } /* Oculta a barra inteira no celular */
     .headline { font-size: 2rem; }
     .section-title { font-size: 2rem; }
-    .hero { padding-top: 120px; }
+    .hero { padding-top: 60px; } /* Reduz o espaço do topo, já que não tem mais barra */
     .authority-seals { flex-direction: column; gap: 1rem; }
     .pillar { flex-direction: column; gap: 1rem; }
 }
