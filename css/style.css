@@ -157,8 +157,9 @@ a {
 }
 
 .logo img {
-    height: 40px; /* Ajuste conforme a proporção real da sua logo */
+    height: 40px;
     width: auto;
+    mix-blend-mode: multiply; /* Este é o comando que elimina o fundo branco */
 }
 
 .nav-links {
