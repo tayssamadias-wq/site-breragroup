@@ -1,0 +1,463 @@
+/* ==========================================================================
+   VARIÁVEIS DE DESIGN SYSTEM (ALTA GAMA)
+   ========================================================================== */
+   :root {
+    --bg-cream: #FDFCF8;
+    --bg-light: #F4F2EC;
+    --primary-green: #14281D; /* Verde Escuro Institucional */
+    --accent-gold: #A68A56;
+    --text-dark: #1A1A1A;
+    --text-light: #FDFCF8;
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==========================================================================
+   RESET & BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--primary-green);
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+/* ==========================================================================
+   LAYOUT & CONTAINERS
+   ========================================================================== */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container.narrow {
+    max-width: 800px;
+}
+
+.section {
+    padding: 6rem 0;
+}
+
+.bg-light { background-color: var(--bg-light); }
+.bg-dark { background-color: var(--primary-green); color: var(--text-light); }
+.bg-dark h2 { color: var(--text-light); }
+
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+
+/* ==========================================================================
+   TIPOGRAFIA & TÍTULOS
+   ========================================================================== */
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-subtitle, .section-context {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.1rem;
+    color: #4A4A4A;
+}
+
+/* ==========================================================================
+   BOTÕES (CTAs)
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-gold);
+    color: var(--text-light);
+}
+
+.btn-outline {
+    border-color: var(--primary-green);
+    color: var(--primary-green);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+}
+
+.btn-large {
+    padding: 1.2rem 3rem;
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(253, 252, 248, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(20, 40, 29, 0.1);
+    transition: var(--transition);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px; /* Ajuste conforme a proporção real da sua logo */
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links a:hover {
+    color: var(--accent-gold);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--accent-gold);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+}
+
+.headline {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.subheadline {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: #4A4A4A;
+    margin-bottom: 3rem;
+}
+
+.micro-copy {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 1rem;
+}
+
+.authority-seals {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    font-weight: 500;
+    color: var(--primary-green);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   CARDS & SOLUÇÕES
+   ========================================================================== */
+.card {
+    background: #FFF;
+    padding: 2.5rem;
+    border-top: 4px solid var(--primary-green);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.solution-box {
+    background: #FFF;
+    padding: 3rem 2rem;
+    border: 1px solid #EAEAEA;
+    position: relative;
+}
+
+.solution-box.highlight {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    border: none;
+}
+
+.solution-box.highlight h3, .solution-box.highlight .target, .solution-box.highlight .objective {
+    color: var(--text-light);
+}
+
+.solution-tag {
+    position: absolute;
+    top: -12px;
+    left: 2rem;
+    background: var(--text-dark);
+    color: #FFF;
+    padding: 0.3rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.solution-tag.gold {
+    background: var(--accent-gold);
+}
+
+.solution-box h3 { margin: 1rem 0; font-size: 1.8rem; }
+.solution-box p { margin-bottom: 0.8rem; font-size: 0.95rem; }
+
+.check-list {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-gold);
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   PILARES & PROCESSO
+   ========================================================================== */
+.method-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.pillar {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.pillar-number {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    color: var(--accent-gold);
+    line-height: 1;
+}
+
+.pillar-content h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+.process-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.step { flex: 1; }
+.step-arrow { font-size: 2rem; color: var(--accent-gold); }
+.step-number {
+    font-size: 2rem;
+    font-family: var(--font-heading);
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+}
+.step h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+.step p { font-size: 0.9rem; color: #666; }
+
+/* ==========================================================================
+   TABELA ROI
+   ========================================================================== */
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 3rem;
+}
+
+.roi-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #FFF;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.roi-table th, .roi-table td {
+    padding: 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.roi-table th {
+    background-color: var(--primary-green);
+    color: #FFF;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+}
+
+.roi-table td.positive {
+    color: var(--primary-green);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   FAQ ACCORDION
+   ========================================================================== */
+.accordion { margin-top: 3rem; }
+.accordion-item { border-bottom: 1px solid #CCC; }
+.accordion-header {
+    width: 100%;
+    text-align: left;
+    padding: 1.5rem 0;
+    background: none;
+    border: none;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--primary-green);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+.accordion-header::after { content: '+'; font-size: 1.5rem; }
+.accordion-header.active::after { content: '−'; }
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+.accordion-content p { padding-bottom: 1.5rem; color: #4A4A4A; }
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer { background-color: var(--primary-green); color: var(--text-light); }
+.footer-cta { text-align: center; padding: 6rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.footer-cta h2 { color: #FFF; font-size: 2.5rem; margin-bottom: 1rem; }
+.footer-cta p { margin-bottom: 2rem; font-size: 1.1rem; opacity: 0.8; }
+.footer-bottom { padding: 4rem 0 2rem 0; }
+.footer-logo { height: 50px; filter: brightness(0) invert(1); margin-bottom: 1rem; }
+.footer-brand p, .footer-contact p, .footer-social a { font-size: 0.9rem; opacity: 0.7; margin-bottom: 0.5rem; }
+.footer-social a { display: block; text-decoration: underline; }
+.footer h4 { color: var(--accent-gold); margin-bottom: 1rem; font-size: 1.1rem; }
+.copyright { text-align: center; margin-top: 3rem; font-size: 0.8rem; opacity: 0.5; }
+
+/* ==========================================================================
+   ANIMAÇÕES DE ENTRADA (INTERATIVIDADE)
+   ========================================================================== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .headline { font-size: 2.5rem; }
+    .nav-links { display: none; /* Em um projeto maior, aqui entraria um Menu Hamburguer */ }
+    .process-steps { flex-direction: column; gap: 2rem; }
+    .step-arrow { transform: rotate(90deg); }
+}
+@media (max-width: 768px) {
+    .headline { font-size: 2rem; }
+    .section-title { font-size: 2rem; }
+    .hero { padding-top: 120px; }
+    .authority-seals { flex-direction: column; gap: 1rem; }
+    .pillar { flex-direction: column; gap: 1rem; }
+}
