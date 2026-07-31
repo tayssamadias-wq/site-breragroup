@@ -459,36 +459,45 @@ a {
     /* Esconde os itens do menu e botão no celular */
     .nav-links, .navbar .btn-outline { display: none; }
     
-    /* Destrava a barra do topo e tira o espaçamento desnecessário */
+    /* Navbar blindada e sem respiros desnecessários embaixo */
     .navbar { 
         position: relative; 
-        padding: 1.5rem 0 0 0; 
+        padding: 1rem 0 0 0; 
         border-bottom: none; 
         background-color: transparent; 
         box-shadow: none !important; 
+        margin-bottom: 0;
     }
     
-    /* Centraliza o container da logo */
+    /* Centraliza a logo */
     .nav-container { justify-content: center; }
     
-    /* AUMENTA A LOGO E FORÇA A TRANSPARÊNCIA */
+    /* LOGO: MAIOR E COM TRANSPARÊNCIA FORÇADA PARA IPHONE/SAFARI */
     .logo img { 
-        height: 80px !important; /* Dobramos o tamanho da logo */
-        mix-blend-mode: multiply !important; /* Remove o fundo branco no celular */
+        height: 80px !important; 
+        mix-blend-mode: multiply !important; 
+        -webkit-mix-blend-mode: multiply !important; /* O comando de mestre para o iPhone */
+        display: block;
+        margin: 0 auto;
     }
 
-    /* ELIMINA O ESPAÇO GIGANTE ANTES DO TEXTO */
+    /* ZERO ESPAÇO: Cola a Hero Section na Logo */
     .hero { 
-        padding-top: 1rem; /* Reduzido drasticamente */
+        padding-top: 0 !important; 
         min-height: auto; 
         padding-bottom: 3rem;
+        margin-top: -15px; /* Puxa a sessão inteira para cima, colando na logo */
     } 
+    
+    .badge {
+        margin-top: 0;
+    }
     
     .headline { font-size: 2.2rem; margin-top: 1rem; }
     
-    /* DIMINUI A FONTE DA DESCRIÇÃO */
+    /* Fonte da descrição mais refinada e objetiva */
     .subheadline { 
-        font-size: 1rem; /* Fonte menor e mais elegante (antes era 1.2) */
+        font-size: 1rem; 
         margin-bottom: 2rem;
     }
 
