@@ -185,7 +185,8 @@ a {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 150px;
+    padding-top: 150px; 
+    padding-bottom: 100px; /* Este é o respiro que blinda a quebra no notebook */
     text-align: center;
 }
 
