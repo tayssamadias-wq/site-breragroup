@@ -1,340 +1,1299 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brera Group | Corporate Wellness & Descompressão</title>
-    
-    <!-- Tipografia de Alta Gama: Playfair (Serifada) e Montserrat (Moderna) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brera Group — Healthtech & Gestão em Saúde</title>
+  <meta name="description" content="A Brera Group desenvolve infraestrutura digital, metodologias de governança e soluções de software como o Klinova para elevar o padrão da gestão em saúde." />
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Instrument Serif para contraste editorial sofisticado -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brera-dark: #202d10;
+      --brera-deep: #151e0a;
+      --brera-olive: #354720;
+      --brera-muted: #5a654e;
+      --brera-light-bg: #faf9f5;
+      --brera-surface: #ffffff;
+      --brera-subtle: #f1efe8;
+      --brera-border: rgba(32, 45, 16, 0.11);
+      --brera-border-strong: rgba(32, 45, 16, 0.22);
+      --brera-gold: #c5b386;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--brera-light-bg);
+      color: var(--brera-dark);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .brand-font {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: -0.025em;
+      color: var(--brera-dark);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================
+       LOGO VETORIAL FIEL À MARCA BRERA GROUP
+       ========================================== */
+    .brera-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.65rem;
+      line-height: 1;
+      color: var(--brera-dark);
+      user-select: none;
+    }
+
+    .brera-logo .logo-bold {
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .brera-logo .logo-light {
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    .brera-logo .logo-divider {
+      width: 12px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Caso prefira usar o arquivo PNG diretamente, basta descomentar a classe abaixo */
+    .brera-logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+
+    /* ==========================================
+       HEADER / NAVEGAÇÃO
+       ========================================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(250, 249, 245, 0.86);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--brera-border);
+      transition: var(--transition);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--brera-muted);
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--brera-dark);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 999px;
+      background-color: var(--brera-dark);
+      color: #ffffff !important;
+      font-size: 0.88rem;
+      font-weight: 500;
+      border: 1px solid var(--brera-dark);
+    }
+
+    .nav-cta:hover {
+      background-color: var(--brera-olive);
+      transform: translateY(-1px);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--brera-dark);
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    /* ==========================================
+       COMPONENTES GERAIS (EYEBROW, BOTÕES)
+       ========================================== */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--brera-olive);
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--brera-dark);
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 30px;
+      border-radius: 999px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background-color: var(--brera-dark);
+      color: #ffffff;
+      border: 1px solid var(--brera-dark);
+      box-shadow: 0 10px 28px -8px rgba(32, 45, 16, 0.35);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--brera-olive);
+      border-color: var(--brera-olive);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px -6px rgba(32, 45, 16, 0.45);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--brera-dark);
+      border: 1px solid var(--brera-border-strong);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(32, 45, 16, 0.05);
+      border-color: var(--brera-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-light {
+      background-color: #ffffff;
+      color: var(--brera-dark);
+      border: 1px solid #ffffff;
+    }
+
+    .btn-light:hover {
+      background-color: var(--brera-subtle);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-light {
+      background-color: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+    }
+
+    .btn-outline-light:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================
+       SESSÃO 1: HERO SECTION
+       ========================================== */
+    .hero {
+      position: relative;
+      padding: 175px 0 120px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--brera-border);
+      background:
+        radial-gradient(circle at 85% 15%, rgba(32, 45, 16, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 10% 80%, rgba(197, 179, 134, 0.12) 0%, transparent 40%),
+        var(--brera-light-bg);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.35rem, 4.3vw, 3.85rem);
+      font-weight: 600;
+      line-height: 1.12;
+      margin-bottom: 28px;
+      color: var(--brera-dark);
+    }
+
+    .hero-subheadline {
+      font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+      color: var(--brera-muted);
+      max-width: 640px;
+      margin-bottom: 42px;
+      font-weight: 400;
+    }
+
+    /* Elemento Arquitetônico Visual na Hero */
+    .hero-visual {
+      position: relative;
+      background: var(--brera-surface);
+      border: 1px solid var(--brera-border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: 0 24px 60px -15px rgba(32, 45, 16, 0.08);
+    }
+
+    .hero-visual-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--brera-border);
+    }
+
+    .visual-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brera-muted);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(32, 45, 16, 0.07);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--brera-dark);
+    }
+
+    .status-pill span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brera-dark);
+    }
+
+    .visual-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .metric-card {
+      background: var(--brera-light-bg);
+      border: 1px solid var(--brera-border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .metric-card small {
+      display: block;
+      font-size: 0.76rem;
+      color: var(--brera-muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .metric-card strong {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--brera-dark);
+    }
+
+    .visual-Klinova-banner {
+      background: var(--brera-dark);
+      color: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .visual-Klinova-banner h4 {
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .visual-Klinova-banner p {
+      font-size: 0.84rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    /* ==========================================
+       SESSÃO 2: POSICIONAMENTO & TESE (QUEM SOMOS)
+       ========================================== */
+    .section {
+      padding: 115px 0;
+    }
+
+    .about-top {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 64px;
+      align-items: start;
+      margin-bottom: 72px;
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+      font-weight: 600;
+      line-height: 1.18;
+    }
+
+    .about-text p {
+      font-size: 1.06rem;
+      color: var(--brera-muted);
+      margin-bottom: 22px;
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-text strong {
+      color: var(--brera-dark);
+      font-weight: 600;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .pillar-card {
+      background: var(--brera-surface);
+      border: 1px solid var(--brera-border);
+      border-radius: var(--radius-md);
+      padding: 36px 32px;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--brera-border-strong);
+      box-shadow: 0 20px 40px -15px rgba(32, 45, 16, 0.07);
+    }
+
+    .pillar-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--brera-subtle);
+      color: var(--brera-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .pillar-card p {
+      font-size: 0.96rem;
+      color: var(--brera-muted);
+    }
+
+    /* ==========================================
+       SESSÃO 3: LANÇAMENTO EM DESTAQUE — KLINOVA
+       ========================================== */
+    .klinova-section {
+      padding: 40px 0 115px;
+    }
+
+    .klinova-wrapper {
+      background: linear-gradient(145deg, var(--brera-dark) 0%, var(--brera-deep) 100%);
+      color: #ffffff;
+      border-radius: 32px;
+      padding: 76px 68px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 32px 80px -20px rgba(21, 30, 10, 0.45);
+    }
+
+    .klinova-wrapper::before {
+      content: "";
+      position: absolute;
+      top: -180px;
+      right: -180px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(197, 179, 134, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .launch-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      background: rgba(197, 179, 134, 0.16);
+      border: 1px solid rgba(197, 179, 134, 0.4);
+      color: var(--brera-gold);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 26px;
+    }
+
+    .klinova-header {
+      max-width: 780px;
+      margin-bottom: 52px;
+    }
+
+    .klinova-header h2 {
+      color: #ffffff;
+      font-size: clamp(2.1rem, 3.6vw, 3.1rem);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .klinova-subheadline {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      margin-bottom: 22px;
+    }
+
+    .klinova-description {
+      font-size: 1.02rem;
+      color: rgba(255, 255, 255, 0.74);
+      line-height: 1.75;
+    }
+
+    .klinova-deliverables {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .deliverable-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 30px 28px;
+      backdrop-filter: blur(8px);
+      transition: var(--transition);
+    }
+
+    .deliverable-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(197, 179, 134, 0.45);
+      transform: translateY(-3px);
+    }
+
+    .deliverable-item h3 {
+      color: #ffffff;
+      font-size: 1.12rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .deliverable-item h3 span {
+      color: var(--brera-gold);
+      font-size: 0.9rem;
+    }
+
+    .deliverable-item p {
+      font-size: 0.93rem;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.65;
+    }
+
+    .klinova-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .klinova-url-hint {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* ==========================================
+       SESSÃO 4: ECOSSISTEMA DE ATUAÇÃO
+       ========================================== */
+    .ecosystem-section {
+      padding: 110px 0;
+      background-color: var(--brera-subtle);
+      border-top: 1px solid var(--brera-border);
+      border-bottom: 1px solid var(--brera-border);
+    }
+
+    .section-header-centered {
+      max-width: 680px;
+      margin-bottom: 64px;
+    }
+
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .eco-card {
+      background: var(--brera-surface);
+      border: 1px solid var(--brera-border);
+      border-radius: var(--radius-md);
+      padding: 42px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .eco-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--brera-dark);
+      box-shadow: 0 22px 44px -16px rgba(32, 45, 16, 0.1);
+    }
+
+    .eco-number {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--brera-olive);
+      letter-spacing: 0.12em;
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--brera-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .eco-card h3 {
+      font-size: 1.32rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .eco-card p {
+      font-size: 0.97rem;
+      color: var(--brera-muted);
+    }
+
+    /* ==========================================
+       SESSÃO 5: DIFERENCIAIS INSTITUCIONAIS
+       ========================================== */
+    .diff-section {
+      padding: 115px 0;
+    }
+
+    .diff-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .diff-sticky {
+      position: sticky;
+      top: 120px;
+    }
+
+    .diff-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .diff-item {
+      background: var(--brera-surface);
+      border: 1px solid var(--brera-border);
+      border-radius: var(--radius-md);
+      padding: 34px 36px;
+      transition: var(--transition);
+    }
+
+    .diff-item:hover {
+      border-color: var(--brera-border-strong);
+      box-shadow: 0 14px 30px -12px rgba(32, 45, 16, 0.06);
+    }
+
+    .diff-item h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .diff-item h3::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--brera-dark);
+      flex-shrink: 0;
+    }
+
+    .diff-item p {
+      font-size: 0.98rem;
+      color: var(--brera-muted);
+      padding-left: 20px;
+    }
+
+    /* ==========================================
+       SESSÃO 6: CHAMADA FINAL (CTA) & RODAPÉ
+       ========================================== */
+    .cta-section {
+      padding: 96px 0;
+      background: var(--brera-subtle);
+      border-top: 1px solid var(--brera-border);
+    }
+
+    .cta-box {
+      background: var(--brera-surface);
+      border: 1px solid var(--brera-border-strong);
+      border-radius: 28px;
+      padding: 72px 64px;
+      text-align: center;
+      max-width: 980px;
+      margin: 0 auto;
+      box-shadow: 0 24px 60px -20px rgba(32, 45, 16, 0.08);
+    }
+
+    .cta-box h2 {
+      font-size: clamp(1.95rem, 3.2vw, 2.75rem);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .cta-box p {
+      font-size: 1.1rem;
+      color: var(--brera-muted);
+      max-width: 640px;
+      margin: 0 auto 38px;
+    }
+
+    .cta-box .btn-group {
+      justify-content: center;
+    }
+
+    /* FOOTER */
+    .footer {
+      background-color: var(--brera-light-bg);
+      border-top: 1px solid var(--brera-border);
+      padding: 72px 0 42px;
+      font-size: 0.92rem;
+      color: var(--brera-muted);
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--brera-border);
+    }
+
+    .footer-brand p {
+      margin-top: 14px;
+      font-size: 0.95rem;
+      color: var(--brera-muted);
+      font-weight: 500;
+    }
+
+    .footer-nav-group h4 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--brera-dark);
+      margin-bottom: 18px;
+    }
+
+    .footer-nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-nav-links a:hover {
+      color: var(--brera-dark);
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      padding-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.85rem;
+    }
+
+    .footer-legal {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-legal span,
+    .footer-legal a {
+      color: var(--brera-muted);
+    }
+
+    .footer-legal a:hover {
+      color: var(--brera-dark);
+    }
+
+    /* ==========================================
+       RESPONSIVIDADE (TABLET & MOBILE)
+       ========================================== */
+    @media (max-width: 992px) {
+      .hero-grid,
+      .about-top,
+      .diff-layout {
+        grid-template-columns: 1fr;
+        gap: 44px;
+      }
+
+      .pillars-grid,
+      .klinova-deliverables,
+      .ecosystem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .klinova-wrapper {
+        padding: 48px 32px;
+      }
+
+      .diff-sticky {
+        position: static;
+      }
+
+      .cta-box {
+        padding: 52px 28px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 84px;
+        left: 0;
+        width: 100%;
+        background: var(--brera-surface);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 24px;
+        gap: 20px;
+        border-bottom: 1px solid var(--brera-border);
+        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.06);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .hero {
+        padding: 135px 0 80px;
+      }
+
+      .section,
+      .ecosystem-section,
+      .diff-section {
+        padding: 80px 0;
+      }
+
+      .btn-group {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .visual-metrics {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <header class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <img src="logobg.png" alt="Brera Group Logo">
-            </a>
-            <nav class="nav-links">
-                <a href="#problema">O Problema</a>
-                <a href="#metodo">O Método</a>
-                <a href="#solucoes">Soluções B2B</a>
-                <a href="#diferenciais">Diferenciais</a>
-            </nav>
-            <a href="https://brera-qualificacao.vercel.app/" class="btn btn-outline" target="_blank">Agendar Diagnóstico</a>
-        </div>
-    </header>
+  <!-- ==================== HEADER ==================== -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="#" class="brera-logo" aria-label="Brera Group">
+        <!-- Caso queira usar o arquivo de imagem PNG na pasta do Github, descomente a linha abaixo: -->
+        <!-- <img src="Logo Marca Brera Group.png" alt="Brera Group" class="brera-logo-img" /> -->
+        <span class="logo-bold">Brera</span>
+        <span class="logo-divider" aria-hidden="true">
+          <svg width="10" height="34" viewBox="0 0 10 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 0L5.7 14.5L5 34L4.3 14.5L5 0Z" fill="#202d10"/>
+            <circle cx="5" cy="17" r="2.6" fill="#202d10"/>
+          </svg>
+        </span>
+        <span class="logo-light">Group</span>
+      </a>
 
-    <!-- SESSÃO 1: HERO SECTION -->
-    <section class="hero" id="home">
-        <div class="container hero-content fade-in">
-            <span class="badge">WELLNESS CORPORATIVO & DESCOMPRESSÃO DE ALTA PERFORMANCE</span>
-            <h1 class="headline">A clareza mental do seu líder é o maior ativo financeiro da sua empresa.</h1>
-            <h2 class="subheadline">O Brera Group é uma consultoria especializada em saúde mental preventiva para o ambiente corporativo. Integrando a Psicologia Organizacional e a Neurociência com metodologias de descompressão para combater o burnout, estimular a inovação e fortalecer a cultura de times e lideranças de alta performance.</h2>
-            
-            <div class="hero-actions">
-                <a href="https://brera-qualificacao.vercel.app/" class="btn btn-primary" target="_blank">Solicitar Reunião de Diagnóstico</a>
-                <p class="micro-copy">Reunião de 15 minutos e projeto customizado enviado em até 48 horas.</p>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#sobre">Sobre o Grupo</a>
+        <a href="#ecossistema">Ecossistema</a>
+        <a href="#klinova">Klinova</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="https://www.breragroup.com.br/klinova" class="nav-cta">
+          Acessar Klinova
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== SESSÃO 1: HERO SECTION ==================== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">HEALTHTECH &amp; GESTÃO EM SAÚDE</div>
+        <h1>Inteligência estratégica e tecnologia proprietária para elevar o padrão da gestão em saúde.</h1>
+        <p class="hero-subheadline">
+          A Brera Group desenvolve infraestrutura digital, metodologias de governança e soluções de software para profissionais e organizações que enxergam a saúde com rigor técnico, previsibilidade e visão de futuro.
+        </p>
+        <div class="btn-group">
+          <a href="#klinova" class="btn btn-primary">
+            Conhecer o ecossistema
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+          </a>
+          <a href="https://www.breragroup.com.br/contato" class="btn btn-secondary">
+            Contato institucional
+          </a>
+        </div>
+      </div>
+
+      <!-- Painel Arquitetônico Institucional -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-visual-header">
+          <span class="visual-tag">Infraestrutura &amp; Governança</span>
+          <span class="status-pill"><span></span> Ecossistema Ativo</span>
+        </div>
+        <div class="visual-metrics">
+          <div class="metric-card">
+            <small>Arquitetura</small>
+            <strong>Rigor Técnico &amp; LGPD</strong>
+          </div>
+          <div class="metric-card">
+            <small>Foco Operacional</small>
+            <strong>Previsibilidade Clínica</strong>
+          </div>
+          <div class="metric-card">
+            <small>Engenharia</small>
+            <strong>Software Proprietário</strong>
+          </div>
+          <div class="metric-card">
+            <small>Metodologia</small>
+            <strong>Gestão Escalável</strong>
+          </div>
+        </div>
+        <div class="visual-Klinova-banner">
+          <div>
+            <h4>Klinova — uma solução Brera Group</h4>
+            <p>Plataforma de gestão para psicólogos</p>
+          </div>
+          <a href="https://www.breragroup.com.br/klinova" style="color:#fff; opacity:0.9;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SESSÃO 2: QUEM SOMOS ==================== -->
+  <section id="sobre" class="section">
+    <div class="container">
+      <div class="about-top">
+        <div>
+          <div class="eyebrow">SOBRE A BRERA GROUP</div>
+          <h2 class="section-title">Uma healthtech comprometida com o futuro da gestão em saúde.</h2>
+        </div>
+        <div class="about-text">
+          <p>
+            O setor da saúde não sofre por falta de excelência clínica, mas pela fragmentação operacional. Profissionais altamente qualificados perdem tempo, energia e margem de crescimento presos a processos manuais, ferramentas genéricas e desorganização administrativa.
+          </p>
+          <p>
+            A <strong>Brera Group</strong> nasceu para resolver essa assimetria. Atuamos como uma healthtech especializada em gestão em saúde, unindo engenharia de software, design funcional e inteligência de processos para transformar consultórios e operações de saúde em estruturas sólidas, seguras e escaláveis.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pilares da Marca (3 Colunas) -->
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Rigor &amp; Governança</h3>
+          <p>Estruturamos fluxos administrativos e financeiros que trazem clareza, controle e previsibilidade para a rotina em saúde.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3>Tecnologia Sob Medida</h3>
+          <p>Criamos plataformas desenhadas especificamente para as exigências reais da prática clínica — sem adaptações improvisadas.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Segurança &amp; Ética</h3>
+          <p>Operamos sob padrões estritos de privacidade, sigilo profissional e conformidade com a LGPD desde a arquitetura de cada sistema.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SESSÃO 3: LANÇAMENTO KLINOVA ==================== -->
+  <section id="klinova" class="klinova-section">
+    <div class="container">
+      <div class="klinova-wrapper">
+        <div class="launch-badge">
+          <span>●</span> LANÇAMENTO OFICIAL
+        </div>
+
+        <div class="klinova-header">
+          <h2>Klinova — uma solução Brera Group</h2>
+          <p class="klinova-subheadline">
+            A plataforma de gestão desenvolvida para psicólogos que conduzem sua clínica com seriedade, excelência e autonomia.
+          </p>
+          <p class="klinova-description">
+            O Klinova marca o lançamento da nossa plataforma proprietária voltada exclusivamente para a realidade da Saúde Mental no País. Mais do que um sistema administrativo, o Klinova centraliza a operação dos seus atendimentos em um ambiente limpo, intuitivo e seguro — eliminando planilhas dispersas e devolvendo ao profissional o foco integral no atendimento clínico.
+          </p>
+        </div>
+
+        <div class="klinova-deliverables">
+          <div class="deliverable-item">
+            <h3><span>01.</span> Gestão Clínica Centralizada</h3>
+            <p>Organização estruturada de pacientes, agendamentos, histórico de sessões e registros documentais em um único lugar.</p>
+          </div>
+
+          <div class="deliverable-item">
+            <h3><span>02.</span> Controle Financeiro Claro</h3>
+            <p>Acompanhamento objetivo de honorários, sessões realizadas, pendências e previsibilidade de faturamento.</p>
+          </div>
+
+          <div class="deliverable-item">
+            <h3><span>03.</span> Ambiente Seguro e Minimalista</h3>
+            <p>Interface livre de ruídos visuais, projetada para proteger dados sensíveis e otimizar o tempo entre atendimentos.</p>
+          </div>
+        </div>
+
+        <div class="klinova-footer">
+          <a href="https://www.breragroup.com.br/klinova" class="btn btn-light">
+            Saiba mais
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <span class="klinova-url-hint">Disponível em www.breragroup.com.br/klinova</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SESSÃO 4: ECOSSISTEMA DE ATUAÇÃO ==================== -->
+  <section id="ecossistema" class="ecosystem-section">
+    <div class="container">
+      <div class="section-header-centered">
+        <div class="eyebrow">NOSSAS FRENTES</div>
+        <h2 class="section-title">Soluções integradas para modernizar a operação em saúde.</h2>
+      </div>
+
+      <div class="ecosystem-grid">
+        <div class="eco-card">
+          <div>
+            <div class="eco-number">
+              <span>FRENTE 01</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
             </div>
+            <h3>Plataformas &amp; SaaS em Saúde</h3>
+            <p>Desenvolvimento e evolução contínua de softwares especializados, como o Klinova, focados em digitalizar a gestão clínica com alta usabilidade e estabilidade.</p>
+          </div>
+        </div>
 
-            <div class="authority-seals">
-                <span>✓ Regulação Neurofisiológica</span>
-                <span>✓ Estímulo ao Córtex Pré-Frontal</span>
-                <span>✓ Presença & Coesão</span>
+        <div class="eco-card">
+          <div>
+            <div class="eco-number">
+              <span>FRENTE 02</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              </svg>
             </div>
+            <h3>Arquitetura de Processos &amp; Eficiência</h3>
+            <p>Desenho de fluxos operacionais, indicadores de desempenho e boas práticas administrativas para estruturar consultórios e clínicas de alto padrão.</p>
+          </div>
         </div>
-    </section>
 
-    <!-- SESSÃO 2: A DOR OCULTA -->
-    <section class="section bg-light" id="problema">
-        <div class="container">
-            <h2 class="section-title fade-in">O CUSTO DA EXAUSTÃO NO ALTO ESCALÃO</h2>
-            <p class="section-context fade-in">Em ambientes de alta pressão e decisões de milhões de reais, a fadiga mental não é apenas uma questão de bem-estar. Quando lideranças operam sob estresse crônico, a margem de lucro do negócio é comprometida.</p>
-            
-            <div class="grid-3 cards-impact">
-                <div class="card fade-in">
-                    <h3>Rigidez Cognitiva e Decisões Reativas</h3>
-                    <p><strong>O Sintoma:</strong> Sob estresse prolongado, a hiperativação da amígdala sequestra o cérebro executivo.</p>
-                    <p><strong>O Impacto:</strong> Líderes perdem a capacidade de inovação, adotam posturas defensivas e tomam decisões precipitadas ou excessivamente conservadoras.</p>
-                </div>
-                <div class="card fade-in">
-                    <h3>Ruído Operacional e Desalinhamento</h3>
-                    <p><strong>O Sintoma:</strong> Equipes sob pressão contínua operam sem segurança psicológica.</p>
-                    <p><strong>O Impacto:</strong> Microconflitos não resolvidos, falhas graves de comunicação e perda de coesão em momentos críticos de transição.</p>
-                </div>
-                <div class="card fade-in">
-                    <h3>O Ineficiente "Modo Passivo"</h3>
-                    <p><strong>O Sintoma:</strong> Dependência de palestras teóricas ou treinamentos institucionais que não motivam e nem resolvem conflitos.</p>
-                    <p><strong>O Impacto:</strong> Informação cognitiva pura não altera o estado fisiológico do sistema nervoso nem reduz os níveis de cortisol coletivo.</p>
-                </div>
+        <div class="eco-card">
+          <div>
+            <div class="eco-number">
+              <span>FRENTE 03</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
             </div>
+            <h3>Inovação &amp; Inteligência Aplicada</h3>
+            <p>Pesquisa e desenvolvimento de novas soluções tecnológicas voltadas aos desafios contemporâneos da gestão, saúde mental e organização do cuidado.</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- SESSÃO 3: POR QUE O BRERA GROUP? -->
-    <section class="section bg-dark text-light" id="porque-brera">
-        <div class="container narrow fade-in">
-            <h2 class="section-title text-light">MUDANÇA DE ESTADO, NÃO APENAS TEORIA</h2>
-            <p class="persuasive-text">A maioria dos programas corporativos falha porque tenta resolver um problema biológico e comportamental com conteúdo teórico. Ensinar um executivo sobre o estresse não reduz a frequência cardíaca nem devolve a lucidez estratégica.</p>
-            <p class="persuasive-text">O <strong>Brera Group</strong> une os fundamentos da Psicologia Organizacional e da Neurociência com metodologias de Expressão Criativa e Experiência Sensorial para que haja mudanças reais no estado neurofisiológico do seu time.</p>
+  <!-- ==================== SESSÃO 5: DIFERENCIAIS INSTITUCIONAIS ==================== -->
+  <section id="diferenciais" class="diff-section">
+    <div class="container diff-layout">
+      <div class="diff-sticky">
+        <div class="eyebrow">DIFERENCIAIS INSTITUCIONAIS</div>
+        <h2 class="section-title">Por que a Brera Group?</h2>
+      </div>
+
+      <div class="diff-list">
+        <div class="diff-item">
+          <h3>Especialização Real em Saúde</h3>
+          <p>Não adaptamos ERPs genéricos. Cada fluxo é pensado a partir das nuances éticas e operacionais da área da saúde.</p>
         </div>
-    </section>
 
-    <!-- SESSÃO 4: O MÉTODO BRERA -->
-    <section class="section" id="metodo">
-        <div class="container">
-            <h2 class="section-title fade-in">A TRÍADE DE RESTAURAÇÃO DE ALTA PERFORMANCE</h2>
-            
-            <div class="method-pillars">
-                <div class="pillar fade-in">
-                    <div class="pillar-number">01</div>
-                    <div class="pillar-content">
-                        <h3>Regulação Neurofisiológica</h3>
-                        <p><strong>Foco:</strong> Desativação do estado de alerta crônico.</p>
-                        <p><strong>Entrega:</strong> Através de estímulos ambientais e práticas guiadas, induzimos o corpo e a mente ao estado parassimpático, reduzindo indicadores de cortisol e estresse crônico.</p>
-                    </div>
-                </div>
-                <div class="pillar fade-in">
-                    <div class="pillar-number">02</div>
-                    <div class="pillar-content">
-                        <h3>Estímulo ao Córtex Pré-Frontal</h3>
-                        <p><strong>Foco:</strong> Restabelecimento das Funções Executivas e Capacidade de Inovação.</p>
-                        <p><strong>Entrega:</strong> Aplicação de dinâmicas táteis-sensoriais e resolução neuro-criativa de problemas, liberando a mente analítica para voltar a enxergar saídas estratégicas.</p>
-                    </div>
-                </div>
-                <div class="pillar fade-in">
-                    <div class="pillar-number">03</div>
-                    <div class="pillar-content">
-                        <h3>Presença & Coesão</h3>
-                        <p><strong>Foco:</strong> Segurança Psicológica e Alinhamento de Lideranças.</p>
-                        <p><strong>Entrega:</strong> Criação de um ambiente seguro e estratégico fora da rotina, promovendo empatia operacional, alinhamento de visão e conexão autêntica entre diretores e equipes.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="diff-item">
+          <h3>Design Minimalista e Funcional</h3>
+          <p>Acreditamos que ferramentas de trabalho devem reduzir a carga cognitiva, não aumentá-la. Nossas interfaces privilegiam clareza, sobriedade e velocidade.</p>
         </div>
-    </section>
 
-    <!-- SESSÃO 5: SOLUÇÕES B2B -->
-    <section class="section bg-light" id="solucoes">
-        <div class="container">
-            <h2 class="section-title fade-in">FORMATOS EXECUTIVOS SOB MEDIDA</h2>
-            <p class="section-subtitle fade-in">Desenhados para a agenda e as necessidades específicas da sua empresa.</p>
-            
-            <div class="grid-2">
-                <div class="solution-box fade-in">
-                    <span class="solution-tag">Half-Day — 4 Horas</span>
-                    <h3>Executive Reset</h3>
-                    <p class="target"><strong>Público-Alvo:</strong> Diretorias, Conselhos e C-Level.</p>
-                    <p class="objective"><strong>Objetivo:</strong> Descompressão de altíssimo nível, clareza mental imediata e desativação da fadiga decisória.</p>
-                    <ul class="check-list">
-                        <li>Avaliação prévia de estresse e fadiga decisória do grupo.</li>
-                        <li>Dinâmicas de autorregulação neurofisiológica.</li>
-                        <li>Ambiente seguro de descompressão.</li>
-                        <li>Restabelecimento da clareza cognitiva.</li>
-                    </ul>
-                </div>
-
-                <div class="solution-box fade-in">
-                    <span class="solution-tag">Half-Day — 4 Horas</span>
-                    <h3>Team Energy & Flow</h3>
-                    <p class="target"><strong>Público-Alvo:</strong> Times, Departamentos e Gestão Intermediária.</p>
-                    <p class="objective"><strong>Objetivo:</strong> Integração de equipe, saúde mental preventiva e descompressão.</p>
-                    <ul class="check-list">
-                        <li>Estímulo direto à inovação e desbloqueio criativo.</li>
-                        <li>Fortalecimento da segurança psicológica.</li>
-                        <li>Dinâmicas tátil-sensoriais para redução do cortisol.</li>
-                        <li>Restabelecimento da motivação e engajamento.</li>
-                    </ul>
-                </div>
-
-                <div class="solution-box fade-in">
-                    <span class="solution-tag">Full-Day — 8 Horas</span>
-                    <h3>Strategic Flow & Culture</h3>
-                    <p class="target"><strong>Público-Alvo:</strong> Lideranças estendidas ou Equipes em transição.</p>
-                    <p class="objective"><strong>Objetivo:</strong> Alinhamento de cultura, planejamento estratégico e inteligência emocional.</p>
-                    <ul class="check-list">
-                        <li>Mapeamento de clima e alinhamento da visão.</li>
-                        <li>Módulos práticos de inteligência emocional corporativa.</li>
-                        <li>Experiência imersiva em dois blocos (desbloqueio + consolidação).</li>
-                        <li>Relatório de Fechamento com direcionamentos.</li>
-                    </ul>
-                </div>
-
-                <div class="solution-box highlight fade-in">
-                    <span class="solution-tag gold">Imersão de 2 a 3 Dias</span>
-                    <h3>Brera Corporate Retreat</h3>
-                    <p class="target"><strong>Público-Alvo:</strong> Convenções, encontros de sócios ou retiros de alta gestão.</p>
-                    <p class="objective"><strong>Objetivo:</strong> Transformação profunda, arquitetura de cultura e descompressão total.</p>
-                    <ul class="check-list">
-                        <li>Projeto exclusivo em ambientes externos de alto padrão.</li>
-                        <li>Arquitetura completa da experiência (cronograma, saúde mental preventiva).</li>
-                        <li>Curadoria sensorial e desbloqueio de inovação.</li>
-                        <li>Projeto construído sob consulta com a diretoria.</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="diff-item">
+          <h3>Visão de Longo Prazo</h3>
+          <p>Construímos ativos tecnológicos duradouros para acompanhar a evolução profissional de quem atua na linha de frente do cuidado.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- SESSÃO 6: PADRÃO TURNKEY -->
-    <section class="section" id="diferenciais">
-        <div class="container fade-in">
-            <h2 class="section-title">EXCELÊNCIA EM CADA DETALHE: O PADRÃO TURNKEY</h2>
-            <p class="section-subtitle">Sua empresa não precisa se preocupar com a produção. Entregamos a experiência pronta, do início ao fim.</p>
-            
-            <div class="grid-4 turnkey-features">
-                <div class="feature">
-                    <h4>Insumos & Materiais</h4>
-                    <p>Suportes e ferramentas criativas de nível profissional e estética impecável.</p>
-                </div>
-                <div class="feature">
-                    <h4>Curadoria Sonora & Olfativa</h4>
-                    <p>Estímulos com precisão neurocientífica para induzir o cérebro ao estado de Flow.</p>
-                </div>
-                <div class="feature">
-                    <h4>Gastronomia & Hospitality</h4>
-                    <p>Catering exclusivo, saudável e refinado, alinhado ao perfil do evento.</p>
-                </div>
-                <div class="feature">
-                    <h4>Parecer Técnico</h4>
-                    <p>Relatório executivo pós-evento com dados e recomendações para a diretoria.</p>
-                </div>
-            </div>
+  <!-- ==================== SESSÃO 6: CHAMADA FINAL & RODAPÉ ==================== -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Eleve a estrutura da sua prática profissional.</h2>
+        <p>
+          Conheça o Klinova, nossa plataforma de gestão para psicólogos, ou entre em contato com a equipe institucional da Brera Group.
+        </p>
+        <div class="btn-group">
+          <a href="https://www.breragroup.com.br/klinova" class="btn btn-primary">
+            Saiba mais sobre o Klinova
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="https://www.breragroup.com.br/contato" class="btn btn-secondary">
+            Falar com a Brera Group
+          </a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- SESSÃO 7: ROI -->
-    <section class="section bg-light" id="roi">
-        <div class="container fade-in">
-            <h2 class="section-title">O IMPACTO DO BRERA GROUP NO SEU NEGÓCIO</h2>
-            
-            <div class="table-responsive">
-                <table class="roi-table">
-                    <thead>
-                        <tr>
-                            <th>Indicador</th>
-                            <th>Antes da Imersão Brera</th>
-                            <th>Após o Método Brera</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Tomada de Decisão</strong></td>
-                            <td>Reativa, impulsiva ou hesitante por fadiga.</td>
-                            <td class="positive">Lúcida, estratégica e fundamentada.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Clima da Liderança</strong></td>
-                            <td>Ruídos de comunicação e posturas defensivas.</td>
-                            <td class="positive">Segurança psicológica e coesão de time.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Ambiente de Trabalho</strong></td>
-                            <td>Alto cortisol coletivo e risco de burnout.</td>
-                            <td class="positive">Foco, clareza e autorregulação emocional.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Retorno Financeiro</strong></td>
-                            <td>Prejuízos com turnover e decisões erradas.</td>
-                            <td class="positive">Proteção da margem cognitiva e eficiência.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="brera-logo" aria-label="Brera Group">
+            <span class="logo-bold">Brera</span>
+            <span class="logo-divider" aria-hidden="true">
+              <svg width="10" height="34" viewBox="0 0 10 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 0L5.7 14.5L5 34L4.3 14.5L5 0Z" fill="#202d10"/>
+                <circle cx="5" cy="17" r="2.6" fill="#202d10"/>
+              </svg>
+            </span>
+            <span class="logo-light">Group</span>
+          </a>
+          <p>Brera Group — Healthtech &amp; Gestão em Saúde</p>
         </div>
-    </section>
 
-    <!-- SESSÃO 8: PROCESSO DE CONTRATAÇÃO -->
-    <section class="section" id="contratacao">
-        <div class="container fade-in">
-            <h2 class="section-title">3 PASSOS PARA TRANSFORMAR O SEU TIME</h2>
-            
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">01</div>
-                    <h3>Diagnóstico (15 Min)</h3>
-                    <p>Alinhamento executivo para compreender o perfil da equipe e os gargalos operacionais.</p>
-                </div>
-                <div class="step-arrow">⟶</div>
-                <div class="step">
-                    <div class="step-number">02</div>
-                    <h3>Proposta Customizada</h3>
-                    <p>Envio de um projeto executivo sob medida em até 48h, com escopo e formato.</p>
-                </div>
-                <div class="step-arrow">⟶</div>
-                <div class="step">
-                    <div class="step-number">03</div>
-                    <h3>Execução Turnkey</h3>
-                    <p>Produção completa, aplicação in-company e entrega do Parecer Técnico.</p>
-                </div>
-            </div>
+        <div class="footer-nav-group">
+          <h4>Navegação</h4>
+          <div class="footer-nav-links">
+            <a href="#sobre">Sobre o Grupo</a>
+            <a href="#ecossistema">Ecossistema</a>
+            <a href="https://www.breragroup.com.br/klinova">Klinova</a>
+            <a href="https://www.breragroup.com.br/contato">Contato</a>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- SESSÃO 9: FAQ -->
-    <section class="section bg-light" id="faq">
-        <div class="container narrow fade-in">
-            <h2 class="section-title">PERGUNTAS FREQUENTES</h2>
-            
-            <div class="accordion">
-                <div class="accordion-item">
-                    <button class="accordion-header">As soluções precisam ser realizadas fora da empresa?</button>
-                    <div class="accordion-content">
-                        <p>Não necessariamente. Oferecemos opções In-Company (realizadas dentro da sua própria estrutura ou sala de conselho) e opções de Imersões/Retiros Externos de 2 a 3 dias.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">Qual é o impacto real da descompressão no resultado financeiro?</button>
-                    <div class="accordion-content">
-                        <p>Uma única decisão equivocada tomada por um executivo exausto pode custar milhões ao negócio. O custo de substituição de um líder de alto escalão por burnout pode chegar a 213% do seu salário anual. Restabelecer a clareza do C-Level é proteger o patrimônio da empresa.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">O Brera Group cuida de toda a logística da imersão?</button>
-                    <div class="accordion-content">
-                        <p>Sim. Operamos no padrão Turnkey. Cuidamos de todos os materiais de alta gama, curadoria sensorial, ambientação e gastronomia. A sua equipe de RH/People não terá nenhuma sobrecarga operacional.</p>
-                    </div>
-                </div>
-            </div>
+      <div class="footer-bottom">
+        <div>© 2026 Brera Group. Todos os direitos reservados.</div>
+        <div class="footer-legal">
+          <a href="#">Política de Privacidade</a>
+          <span>|</span>
+          <a href="#">Termos de Uso</a>
+          <span>|</span>
+          <a href="#">Conformidade LGPD</a>
+          <span>|</span>
+          <span>Brera Group Ltda</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </footer>
 
-    <!-- SESSÃO 10: FOOTER & CTA FINAL -->
-    <footer class="footer">
-        <div class="container footer-cta fade-in">
-            <h2>Sua liderança está pronta para operar com clareza máxima?</h2>
-            <p>Agende uma Reunião de Diagnóstico de 15 minutos e receba uma proposta customizada para o seu time em até 48 horas.</p>
-            <a href="https://brera-qualificacao.vercel.app/" class="btn btn-primary btn-large" target="_blank">Agendar Reunião de Diagnóstico</a>
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="container grid-3">
-                <div class="footer-brand">
-                    <img src="logobg.png" alt="Brera Group" class="footer-logo">
-                    <p>Corporate Wellness, Descompressão & Alta Performance.</p>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contato</h4>
-                    <p>E-mail: contato@breragroup.com.br</p>
-                    <p>Balneário Camboriú / SC<br>Atendimento In-Company Nacional.</p>
-                </div>
-                <div class="footer-social">
-    <h4>Conecte-se</h4>
-    <a href="https://www.instagram.com/breragroup" target="_blank">Instagram (@breragroup)</a>
-    <a href="https://www.linkedin.com/company/breragroup" target="_blank">LinkedIn (Brera Group)</a>
-</div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2026 Brera Group. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
+  <!-- Script para Menu Mobile -->
+  <script>
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
 
-    <script src="js/main.js"></script>
+    mobileToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>
