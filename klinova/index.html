@@ -1631,13 +1631,34 @@
     const klinovaForm = document.getElementById('klinovaForm');
     const formFeedback = document.getElementById('formFeedback');
 
-    klinovaForm.addEventListener('submit', function(e) {
-      // Se ainda não tiver colocado a chave do Web3Forms, simula o envio sem erro de página
-      const hasAccessKey = klinovaForm.querySelector('input[name="access_key"]');
-      if (!hasAccessKey) {
-        e.preventDefault();
+    klinovaForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const submitBtn = klinovaForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: new FormData(klinovaForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        const data = await response.json();
+        if (data.success) {
+          formFeedback.style.display = 'block';
+          formFeedback.textContent = 'Recebemos suas informações com sucesso! Nossa equipe entrará em contato em breve.';
+          klinovaForm.reset();
+        } else {
+          formFeedback.style.display = 'block';
+          formFeedback.textContent = 'Não foi possível enviar agora. Tente novamente em instantes.';
+        }
+      } catch (err) {
         formFeedback.style.display = 'block';
-        klinovaForm.reset();
+        formFeedback.textContent = 'Erro de conexão. Verifique sua internet e tente novamente.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
       }
     });
   </script>
