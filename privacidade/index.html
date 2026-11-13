@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidade, Termos e Conformidade LGPD — Brera Group & Klinova</title>
+  <meta name="description" content="Central de Governança, Política de Privacidade, Termos de Uso e Conformidade LGPD da Brera Group e da plataforma Klinova. Rigor técnico e proteção ao sigilo clínico." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brera-dark: #202d10;
+      --brera-deep: #141d09;
+      --brera-olive: #354720;
+      --klinova-green: #14452f;
+      --brera-muted: #57634c;
+      --brera-light-bg: #faf9f5;
+      --brera-surface: #ffffff;
+      --brera-subtle: #f1efe8;
+      --brera-border: rgba(32, 45, 16, 0.11);
+      --brera-border-strong: rgba(32, 45, 16, 0.24);
+      --brera-gold: #c5b386;
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+      --transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      scroll-padding-top: 110px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--brera-light-bg);
+      color: var(--brera-dark);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: -0.025em;
+      color: var(--brera-dark);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================
+       LOGO VETORIAL BRERA GROUP
+       ========================================== */
+    .brera-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.65rem;
+      line-height: 1;
+      color: var(--brera-dark);
+      user-select: none;
+    }
+
+    .brera-logo .logo-bold {
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .brera-logo .logo-light {
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    .brera-logo .logo-divider {
+      width: 12px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ==========================================
+       HEADER / NAVEGAÇÃO
+       ========================================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(250, 249, 245, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--brera-border);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--brera-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--brera-dark);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 999px;
+      background-color: var(--brera-dark);
+      color: #ffffff !important;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .nav-cta:hover {
+      background-color: var(--brera-olive);
+      transform: translateY(-1px);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--brera-dark);
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    /* ==========================================
+       HERO DE GOVERNANÇA & PRIVACIDADE
+       ========================================== */
+    .trust-hero {
+      padding: 160px 0 80px;
+      border-bottom: 1px solid var(--brera-border);
+      background:
+        radial-gradient(circle at 85% 15%, rgba(20, 69, 47, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 12% 85%, rgba(197, 179, 134, 0.14) 0%, transparent 40%),
+        var(--brera-light-bg);
+    }
+
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      background: rgba(20, 69, 47, 0.08);
+      border: 1px solid rgba(20, 69, 47, 0.22);
+      color: var(--klinova-green);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .trust-hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.35rem);
+      font-weight: 600;
+      line-height: 1.12;
+      max-width: 860px;
+      margin-bottom: 20px;
+    }
+
+    .trust-hero-lead {
+      font-size: 1.12rem;
+      color: var(--brera-muted);
+      max-width: 760px;
+      margin-bottom: 32px;
+    }
+
+    .meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 24px;
+      font-size: 0.85rem;
+      color: var(--brera-muted);
+      padding-top: 24px;
+      border-top: 1px solid var(--brera-border);
+    }
+
+    .meta-bar strong {
+      color: var(--brera-dark);
+    }
+
+    /* ==========================================
+       PILARES EXECUTIVOS DE SEGURANÇA (4 CARDS)
+       ========================================== */
+    .highlights-section {
+      padding: 64px 0;
+      background-color: var(--brera-subtle);
+      border-bottom: 1px solid var(--brera-border);
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .highlight-card {
+      background: var(--brera-surface);
+      border: 1px solid var(--brera-border);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      transition: var(--transition);
+    }
+
+    .highlight-card:hover {
+      border-color: var(--brera-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px -14px rgba(32, 45, 16, 0.08);
+    }
+
+    .highlight-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--brera-dark);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .highlight-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .highlight-card p {
+      font-size: 0.88rem;
+      color: var(--brera-muted);
+      line-height: 1.55;
+    }
+
+    /* ==========================================
+       ESTRUTURA PRINCIPAL: SIDEBAR + DOCUMENTO
+       ========================================== */
+    .legal-layout {
+      padding: 84px 0 110px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* Menu Lateral Fixo (Sticky TOC) */
+    .legal-sidebar {
+      position: sticky;
+      top: 110px;
+      background: var(--brera-surface);
+      border: 1px solid var(--brera-border);
+      border-radius: var(--radius-md);
+      padding: 26px 22px;
+    }
+
+    .sidebar-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--brera-olive);
+      margin-bottom: 16px;
+      padding-left: 10px;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .toc-list a {
+      display: block;
+      padding: 9px 12px;
+      border-radius: 8px;
+      font-size: 0.87rem;
+      font-weight: 500;
+      color: var(--brera-muted);
+      transition: var(--transition);
+    }
+
+    .toc-list a:hover,
+    .toc-list a.active {
+      background: var(--brera-subtle);
+      color: var(--brera-dark);
+      font-weight: 600;
+    }
+
+    .sidebar-cta {
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--brera-border);
+    }
+
+    .sidebar-cta p {
+      font-size: 0.8rem;
+      color: var(--brera-muted);
+      margin-bottom: 12px;
+    }
+
+    .sidebar-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: var(--brera-dark);
+      color: #ffffff;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .sidebar-btn:hover {
+      background: var(--klinova-green);
+    }
+
+    /* Conteúdo Jurídico e Técnico */
+    .legal-content {
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+    }
+
+    .legal-block {
+      background: var(--brera-surface);
+      border: 1px solid var(--brera-border);
+      border-radius: var(--radius-md);
+      padding: 44px 48px;
+      box-shadow: 0 12px 32px -18px rgba(32, 45, 16, 0.05);
+    }
+
+    .block-tag {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--klinova-green);
+      margin-bottom: 10px;
+    }
+
+    .legal-block h2 {
+      font-size: 1.55rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--brera-border);
+    }
+
+    .legal-block h3 {
+      font-size: 1.12rem;
+      font-weight: 600;
+      margin: 26px 0 10px;
+      color: var(--brera-dark);
+    }
+
+    .legal-block p {
+      font-size: 0.97rem;
+      color: var(--brera-muted);
+      margin-bottom: 16px;
+    }
+
+    .legal-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .legal-block strong {
+      color: var(--brera-dark);
+      font-weight: 600;
+    }
+
+    .legal-list {
+      margin: 14px 0 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: var(--brera-muted);
+      font-size: 0.96rem;
+    }
+
+    .legal-list li::marker {
+      color: var(--klinova-green);
+      font-weight: bold;
+    }
+
+    /* Tabela de Papéis na LGPD */
+    .role-table-wrap {
+      overflow-x: auto;
+      margin: 22px 0;
+      border: 1px solid var(--brera-border-strong);
+      border-radius: var(--radius-sm);
+    }
+
+    .role-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 580px;
+      font-size: 0.9rem;
+    }
+
+    .role-table th,
+    .role-table td {
+      padding: 15px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--brera-border);
+    }
+
+    .role-table th {
+      background: var(--brera-subtle);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      color: var(--brera-dark);
+    }
+
+    .role-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Callout de Destaque Ético */
+    .ethical-callout {
+      background: rgba(20, 69, 47, 0.05);
+      border-left: 4px solid var(--klinova-green);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 20px 24px;
+      margin: 22px 0;
+    }
+
+    .ethical-callout p {
+      margin: 0;
+      color: var(--brera-dark);
+      font-size: 0.94rem;
+    }
+
+    /* ==========================================
+       FOOTER
+       ========================================== */
+    .footer {
+      background-color: var(--brera-light-bg);
+      border-top: 1px solid var(--brera-border);
+      padding: 56px 0 38px;
+      font-size: 0.9rem;
+      color: var(--brera-muted);
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--brera-border);
+    }
+
+    .footer-brand p {
+      margin-top: 12px;
+      font-size: 0.92rem;
+    }
+
+    .footer-nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-nav-links a:hover {
+      color: var(--brera-dark);
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.84rem;
+    }
+
+    .footer-legal {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* ==========================================
+       RESPONSIVIDADE
+       ========================================== */
+    @media (max-width: 1024px) {
+      .highlights-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .legal-layout {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .legal-sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 84px;
+        left: 0;
+        width: 100%;
+        background: var(--brera-surface);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        gap: 18px;
+        border-bottom: 1px solid var(--brera-border);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .highlights-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .legal-block {
+        padding: 30px 22px;
+      }
+
+      .trust-hero {
+        padding: 130px 0 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="https://www.breragroup.com.br" class="brera-logo" aria-label="Brera Group">
+        <span class="logo-bold">Brera</span>
+        <span class="logo-divider" aria-hidden="true">
+          <svg width="10" height="34" viewBox="0 0 10 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 0L5.7 14.5L5 34L4.3 14.5L5 0Z" fill="#202d10"/>
+            <circle cx="5" cy="17" r="2.6" fill="#202d10"/>
+          </svg>
+        </span>
+        <span class="logo-light">Group</span>
+      </a>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="https://www.breragroup.com.br">Início</a>
+        <a href="https://www.breragroup.com.br/klinova">Klinova</a>
+        <a href="#privacidade">Privacidade</a>
+        <a href="#lgpd">Conformidade LGPD</a>
+        <a href="#termos">Termos de Uso</a>
+        <a href="https://www.breragroup.com.br/contato" class="nav-cta">Contato Institucional</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== HERO DE GOVERNANÇA ==================== -->
+  <section class="trust-hero">
+    <div class="container">
+      <div class="trust-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        PRIVACIDADE POR DESIGN &amp; SIGILO CLÍNICO
+      </div>
+      <h1>Central de Privacidade, Termos de Uso e Conformidade LGPD.</h1>
+      <p class="trust-hero-lead">
+        Na <strong>Brera Group</strong> e na plataforma <strong>Klinova</strong>, a proteção de dados sensíveis e o respeito ao Código de Ética Profissional do Psicólogo não são cláusulas acessórias: são a fundação da nossa engenharia de software.
+      </p>
+
+      <div class="meta-bar">
+        <span><strong>Entidade Responsável:</strong> Brera Group Ltda</span>
+        <span>•</span>
+        <span><strong>Escopo:</strong> Ecossistema Brera Group &amp; Plataforma Klinova</span>
+        <span>•</span>
+        <span><strong>Base Normativa:</strong> Lei nº 13.709/2018 (LGPD), Res. CFP nº 01/2009 e Res. CFP nº 06/2019</span>
+        <span>•</span>
+        <span><strong>Última atualização:</strong> Novembro de 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4 PILARES DE CONFIANÇA (RESUMO EXECUTIVO) ==================== -->
+  <section class="highlights-section">
+    <div class="container highlights-grid">
+      <div class="highlight-card">
+        <div class="highlight-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <h3>Sigilo Clínico Blindado</h3>
+        <p>Criptografia de ponta em trânsito e em repouso, autenticação em dois fatores (2FA) e trilha de auditoria de acessos desde o primeiro login.</p>
+      </div>
+
+      <div class="highlight-card">
+        <div class="highlight-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+        </div>
+        <h3>Guarda Garantida (5 Anos)</h3>
+        <p>Nunca bloqueamos seus prontuários. Mesmo após alta ou cancelamento, você mantém leitura e exportação pelo prazo mínimo exigido pelo CFP.</p>
+      </div>
+
+      <div class="highlight-card">
+        <div class="highlight-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
+          </svg>
+        </div>
+        <h3>Zero Treinamento de IA</h3>
+        <p>Prontuários, evoluções e registros clínicos jamais são lidos, compartilhados ou utilizados para treinar modelos de inteligência artificial.</p>
+      </div>
+
+      <div class="highlight-card">
+        <div class="highlight-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <polyline points="9 12 11 14 15 10"></polyline>
+          </svg>
+        </div>
+        <h3>Alinhamento Normativo CFP</h3>
+        <p>Fluxos de consentimento, prontuários e modelos documentais desenhados em estrita observância à Resolução CFP nº 06/2019.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTEÚDO PRINCIPAL + SIDEBAR ==================== -->
+  <main class="container legal-layout">
+
+    <!-- Navegação Lateral -->
+    <aside class="legal-sidebar">
+      <div class="sidebar-title">Índice de Governança</div>
+      <ul class="toc-list">
+        <li><a href="#privacidade" class="active">1. Visão Geral &amp; Compromisso</a></li>
+        <li><a href="#lgpd">2. Papéis na LGPD (Controlador vs. Operador)</a></li>
+        <li><a href="#dados-coletados">3. Dados Coletados e Finalidades</a></li>
+        <li><a href="#seguranca">4. Arquitetura de Segurança e Sigilo</a></li>
+        <li><a href="#ia-etica">5. Governança Ética sobre IA</a></li>
+        <li><a href="#retencao-cfp">6. Guarda de Prontuários (5 Anos)</a></li>
+        <li><a href="#direitos">7. Direitos dos Titulares (Art. 18)</a></li>
+        <li><a href="#termos">8. Termos de Uso &amp; Res. CFP 06/2019</a></li>
+      </ul>
+
+      <div class="sidebar-cta">
+        <p>Precisa exercer algum direito previsto na LGPD ou falar com nosso Encarregado de Dados (DPO)?</p>
+        <a href="https://www.breragroup.com.br/contato" class="sidebar-btn">Acionar Canal LGPD</a>
+      </div>
+    </aside>
+
+    <!-- Blocos de Conteúdo -->
+    <div class="legal-content">
+
+      <!-- SEÇÃO 1 -->
+      <article id="privacidade" class="legal-block">
+        <span class="block-tag">01 • POLÍTICA DE PRIVACIDADE</span>
+        <h2>Visão Geral e Compromisso Institucional</h2>
+        <p>
+          A <strong>Brera Group Ltda</strong> ("Brera Group"), pessoa jurídica de direito privado, atua como uma healthtech especializada em gestão em saúde e desenvolvedora da plataforma proprietária <strong>Klinova</strong>. Esta Política de Privacidade e Conformidade LGPD descreve, com transparência e rigor técnico, como tratamos e protegemos informações em nosso site institucional (<code>www.breragroup.com.br</code>), na página do software (<code>www.breragroup.com.br/klinova</code>) e no ambiente operacional da aplicação.
+        </p>
+        <p>
+          Compreendemos que a prática da Psicologia repousa sobre uma relação de confiança inviolável. Por essa razão, toda a nossa arquitetura segue o princípio de <strong>Privacy by Design e Privacy by Default</strong> (Privacidade desde a Concepção e por Padrão), garantindo que a proteção aos dados pessoais e aos dados pessoais sensíveis de saúde ocorra desde a primeira linha de código.
+        </p>
+      </article>
+
+      <!-- SEÇÃO 2 -->
+      <article id="lgpd" class="legal-block">
+        <span class="block-tag">02 • CONFORMIDADE LGPD EM SAÚDE</span>
+        <h2>Distinção de Papéis na LGPD: Controlador e Operador</h2>
+        <p>
+          Para total clareza jurídica perante a <strong>Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 — LGPD)</strong>, a relação entre o Psicólogo(a), seus Pacientes e a Brera Group é estruturada em duas esferas distintas:
+        </p>
+
+        <div class="role-table-wrap">
+          <table class="role-table">
+            <thead>
+              <tr>
+                <th>Escopo de Dados</th>
+                <th>Controlador (Quem decide)</th>
+                <th>Operadora (Quem processa)</th>
+                <th>Base Legal Principal (LGPD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Dados Cadastrais do Psicólogo e Visitantes do Site</strong> (Nome, CRP, e-mail, WhatsApp, faturamento da assinatura)</td>
+                <td><strong>Brera Group Ltda</strong></td>
+                <td>Infraestrutura tecnológica homologada pela Brera Group</td>
+                <td>Execução de Contrato (Art. 7º, V), Consentimento (Art. 7º, I) e Obrigação Legal/Fiscal (Art. 7º, II)</td>
+              </tr>
+              <tr>
+                <td><strong>Dados Clínicos, Prontuários, Evoluções e Documentos dos Pacientes</strong> inseridos no Klinova</td>
+                <td><strong>O Psicólogo(a) / Clínica Assinante</strong></td>
+                <td><strong>Brera Group Ltda (via plataforma Klinova)</strong></td>
+                <td>Tutela da Saúde (Art. 11, II, 'f'), Cumprimento de Obrigação Regulatória pelo CRP/CFP (Art. 11, II, 'a') e Consentimento específico</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ethical-callout">
+          <p>
+            <strong>Autonomia e Titularidade Clínica:</strong> Os prontuários e registros psicológicos inseridos no Klinova pertencem à relação clínica entre o profissional e seu paciente. A Brera Group atua estritamente como <strong>Operadora tecnológica</strong> (Art. 39 da LGPD), fornecendo a guarda segura, criptografada e auditável, sem jamais interferir, comercializar ou acessar o conteúdo clínico sem autorização.
+          </p>
+        </div>
+      </article>
+
+      <!-- SEÇÃO 3 -->
+      <article id="dados-coletados" class="legal-block">
+        <span class="block-tag">03 • FINALIDADE E MINIMIZAÇÃO DE DADOS</span>
+        <h2>Quais Dados Tratamos e Para Quais Finalidades</h2>
+        <p>
+          Adotamos o princípio da <strong>minimização de dados</strong> (Art. 6º, III da LGPD): coletamos apenas o estritamente necessário para a finalidade informada.
+        </p>
+
+        <h3>3.1. Dados de Visitantes e Leads (Formulários de Interesse e Contato)</h3>
+        <ul class="legal-list">
+          <li><strong>Dados coletados:</strong> Nome completo, endereço de e-mail, número de WhatsApp, número do CRP (opcional), faixa de pacientes ativos, ferramenta atual, principais desafios na gestão do consultório e plano de interesse.</li>
+          <li><strong>Finalidade exclusiva:</strong> Apresentar o ecossistema Brera Group e a plataforma Klinova, viabilizar o acesso às condições comerciais de lançamento, prestar suporte de migração assistida e responder a solicitações institucionais.</li>
+        </ul>
+
+        <h3>3.2. Dados Operacionais do Psicólogo Assinante</h3>
+        <ul class="legal-list">
+          <li><strong>Dados coletados:</strong> Dados de identificação profissional (nome, CPF/CNPJ, CRP ativo), credenciais de autenticação, histórico de pagamentos da assinatura e logs de auditoria.</li>
+          <li><strong>Finalidade exclusiva:</strong> Provisionar o ambiente seguro no Klinova, personalizar o cabeçalho técnico dos documentos emitidos, processar cobranças e cumprir obrigações fiscais.</li>
+        </ul>
+
+        <h3>3.3. Dados de Pacientes Armazenados pelo Psicólogo no Klinova</h3>
+        <ul class="legal-list">
+          <li><strong>Dados inseridos pelo profissional:</strong> Identificação civil do paciente, contatos para lembretes de agenda, termos de consentimento assinados, prontuário psicológico, evolução de sessões, documentos psicológicos e registros financeiros/recibos.</li>
+          <li><strong>Finalidade exclusiva:</strong> Permitir ao psicólogo realizar a gestão clínica, documental e fiscal do seu consultório em conformidade com as normas do Conselho Federal de Psicologia (CFP) e da Receita Federal.</li>
+        </ul>
+      </article>
+
+      <!-- SEÇÃO 4 -->
+      <article id="seguranca" class="legal-block">
+        <span class="block-tag">04 • ENGENHARIA DE SEGURANÇA</span>
+        <h2>Arquitetura de Proteção, Criptografia e Controle de Acesso</h2>
+        <p>
+          Para cumprir o Art. 46 da LGPD e o dever de sigilo previsto no <strong>Art. 9º do Código de Ética Profissional do Psicólogo</strong>, o Klinova emprega múltiplas camadas de defesa técnica e administrativa:
+        </p>
+        <ul class="legal-list">
+          <li><strong>Criptografia em Trânsito e em Repouso:</strong> Toda comunicação entre o navegador do profissional e nossos servidores ocorre sob protocolo criptográfico <code>TLS 1.3</code> (HTTPS estrito). Os dados sensíveis e prontuários armazenados em banco de dados contam com criptografia em repouso padrão <code>AES-256</code>.</li>
+          <li><strong>Autenticação em Dois Fatores (2FA):</strong> Disponibilizamos e recomendamos a verificação em duas etapas desde o primeiro login, impedindo acessos não autorizados mesmo em caso de comprometimento de senha no dispositivo do usuário.</li>
+          <li><strong>Controle Estrito de Acesso e Isolamento Lógico:</strong> Cada consultório opera em partição lógica isolada. Apenas o profissional titular da conta possui permissão de leitura e escrita sobre os prontuários de seus pacientes.</li>
+          <li><strong>Registro Imutável de Acessos (Logs de Auditoria):</strong> A plataforma registra automaticamente data, hora, endereço IP e ação realizada em cada sessão autenticada, assegurando rastreabilidade completa para fins de conformidade com a LGPD.</li>
+          <li><strong>Gestão de Consentimento Nativa:</strong> Ferramentas integradas para registro e guarda dos termos de consentimento do paciente desde o início do acompanhamento psicoterapêutico.</li>
+        </ul>
+      </article>
+
+      <!-- SEÇÃO 5 -->
+      <article id="ia-etica" class="legal-block">
+        <span class="block-tag">05 • GOVERNANÇA ÉTICA EM INTELIGÊNCIA ARTIFICIAL</span>
+        <h2>Uso Ético de Tecnologia e Proteção Absoluta do Prontuário</h2>
+        <p>
+          A Brera Group estabelece uma fronteira ética intransponível no uso de tecnologias emergentes dentro da Saúde Mental:
+        </p>
+        <ul class="legal-list">
+          <li><strong>Proibição de IA Diagnóstica ou Prescritiva:</strong> O Klinova <strong>não utiliza inteligência artificial</strong> para elaborar diagnósticos, sugerir condutas clínicas, interpretar sintomas ou substituir o julgamento técnico do psicólogo.</li>
+          <li><strong>Zero Treinamento com Dados Clínicos:</strong> Nenhum dado inserido em prontuários, evoluções ou documentos psicológicos é compartilhado com terceiros ou utilizado para treinar modelos públicos ou privados de linguagem (LLMs).</li>
+          <li><strong>Transcrição Opcional Mediante Consentimento:</strong> Recursos de transcrição automatizada de sessões são estritamente opcionais, desativados por padrão e condicionados à coleta prévia de consentimento livre, informado e inequívoco do paciente.</li>
+        </ul>
+      </article>
+
+      <!-- SEÇÃO 6 -->
+      <article id="retencao-cfp" class="legal-block">
+        <span class="block-tag">06 • PORTABILIDADE, ARQUIVAMENTO E GUARDA DOCUMENTAL</span>
+        <h2>Garantia de Acesso e Guarda Mínima de 5 Anos (Resolução CFP nº 01/2009)</h2>
+        <p>
+          Sabemos que uma das maiores inseguranças do psicólogo ao contratar um software é o receio de ficar "refém" da plataforma. Na Brera Group, nossa política contratual protege integralmente a sua autonomia profissional:
+        </p>
+        <ul class="legal-list">
+          <li><strong>Pacientes em Alta ou Interrupção (Arquivamento):</strong> O limite de pacientes ativos do plano Essencial (até 15 pacientes) contabiliza apenas pacientes em acompanhamento ativo. Ao conceder alta ou encerrar o processo psicoterapêutico, o profissional pode arquivar o cadastro sem que ele ocupe sua cota ativa.</li>
+          <li><strong>Política de "Prontuário Nunca Trancado":</strong> Caso o psicólogo decida cancelar sua assinatura ou alterar seu plano, a Klinova <strong>jamais bloqueia o acesso aos registros já produzidos</strong>.</li>
+          <li><strong>Guarda Garantida por 5 (Cinco) Anos:</strong> Em alinhamento ao prazo mínimo estabelecido pela <strong>Resolução CFP nº 01/2009</strong> (Registro Documental), garantimos ao profissional a manutenção do acesso em modo de leitura e a possibilidade de exportação integral dos prontuários pelo período de 5 anos após a última sessão registrada.</li>
+        </ul>
+      </article>
+
+      <!-- SEÇÃO 7 -->
+      <article id="direitos" class="legal-block">
+        <span class="block-tag">07 • DIREITOS DO TITULAR DE DADOS</span>
+        <h2>Como Exercer Seus Direitos Previstos no Art. 18 da LGPD</h2>
+        <p>
+          Você possui controle permanente sobre os seus dados pessoais. A qualquer momento, é possível solicitar gratuitamente à Brera Group:
+        </p>
+        <ul class="legal-list">
+          <li><strong>Confirmação e Acesso:</strong> Saber se realizamos algum tratamento com seus dados e obter cópia clara das informações registradas.</li>
+          <li><strong>Correção e Atualização:</strong> Solicitar a retificação de dados incompletos, inexatos ou desatualizados.</li>
+          <li><strong>Portabilidade:</strong> Exportar seus registros e relatórios em formato estruturado e interoperável.</li>
+          <li><strong>Anonimização, Bloqueio ou Eliminação:</strong> Requerer a exclusão de dados desnecessários ou tratados mediante consentimento, respeitados os prazos legais de guarda obrigatória (como obrigações fiscais e o prazo ético de 5 anos de guarda documental clínica pelo psicólogo).</li>
+          <li><strong>Revogação do Consentimento:</strong> Desinscrever-se de comunicações institucionais ou revogar autorizações concedidas anteriormente.</li>
+        </ul>
+        <p>
+          <em>Nota importante para Pacientes:</em> Como o Psicólogo(a) é o Controlador dos prontuários clínicos, solicitações de pacientes relativas ao conteúdo de seus prontuários devem ser direcionadas diretamente ao profissional responsável pelo atendimento, a quem a Brera Group prestará todo o suporte técnico necessário na plataforma.
+        </p>
+      </article>
+
+      <!-- SEÇÃO 8 -->
+      <article id="termos" class="legal-block">
+        <span class="block-tag">08 • TERMOS DE USO &amp; RESPONSABILIDADE TÉCNICA</span>
+        <h2>Diretrizes de Utilização da Plataforma e Resolução CFP nº 06/2019</h2>
+        <p>
+          Ao utilizar o site institucional da Brera Group e a plataforma Klinova, o usuário concorda com as seguintes condições operacionais e éticas:
+        </p>
+        <h3>8.1. Responsabilidade Técnica pelos Documentos Psicológicos</h3>
+        <p>
+          O Klinova disponibiliza estruturas e modelos documentais (declarações, atestados, relatórios, laudos e pareceres) desenhados em alinhamento formal com a <strong>Resolução CFP nº 06/2019</strong>. Contudo, a elaboração técnica, a veracidade das informações, a fundamentação teórico-metodológica e a assinatura dos documentos emitidos são de <strong>responsabilidade exclusiva e indelegável do psicólogo(a)</strong> regularmente inscrito no respectivo Conselho Regional de Psicologia (CRP).
+        </p>
+
+        <h3>8.2. Organização Fiscal vs. Assessoria Contábil</h3>
+        <p>
+          Os módulos financeiros e fiscais do Klinova (controle de recebimentos, emissão de recibos, organização de dados para o Receita Saúde, NFS-e e geração do relatório mensal) têm caráter organizacional e tecnológico. A plataforma otimiza a rotina e reduz erros manuais, mas não substitui a atuação técnica do contador habilitado do profissional.
+        </p>
+
+        <h3>8.3. Propriedade Intelectual</h3>
+        <p>
+          As marcas <strong>Brera Group</strong> e <strong>Klinova</strong>, bem como o código-fonte, design de interface, arquitetura visual, logotipos e textos institucionais, são de titularidade exclusiva da <strong>Brera Group Ltda</strong>, sendo vedada sua reprodução ou engenharia reversa sem autorização expressa.
+        </p>
+
+        <h3>8.4. Canal de Governança e Contato</h3>
+        <p>
+          Para dúvidas sobre esta Política de Privacidade, Termos de Uso ou solicitações relativas à LGPD, entre em contato diretamente pelo nosso canal oficial em <a href="https://www.breragroup.com.br/contato" style="color: var(--klinova-green); font-weight: 600; text-decoration: underline;">www.breragroup.com.br/contato</a>.
+        </p>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- ==================== RODAPÉ ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="https://www.breragroup.com.br" class="brera-logo" aria-label="Brera Group">
+            <span class="logo-bold">Brera</span>
+            <span class="logo-divider" aria-hidden="true">
+              <svg width="10" height="34" viewBox="0 0 10 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 0L5.7 14.5L5 34L4.3 14.5L5 0Z" fill="#202d10"/>
+                <circle cx="5" cy="17" r="2.6" fill="#202d10"/>
+              </svg>
+            </span>
+            <span class="logo-light">Group</span>
+          </a>
+          <p>Brera Group — Healthtech &amp; Gestão em Saúde</p>
+        </div>
+
+        <div class="footer-nav-links">
+          <a href="https://www.breragroup.com.br/#sobre">Sobre o Grupo</a>
+          <a href="https://www.breragroup.com.br/#ecossistema">Ecossistema</a>
+          <a href="https://www.breragroup.com.br/klinova">Klinova</a>
+          <a href="https://www.breragroup.com.br/contato">Contato</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Brera Group. Todos os direitos reservados.</div>
+        <div class="footer-legal">
+          <a href="https://www.breragroup.com.br/privacidade#privacidade">Política de Privacidade</a>
+          <span>|</span>
+          <a href="https://www.breragroup.com.br/privacidade#termos">Termos de Uso</a>
+          <span>|</span>
+          <a href="https://www.breragroup.com.br/privacidade#lgpd">Conformidade LGPD</a>
+          <span>|</span>
+          <span>Brera Group Ltda</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script>
+    // Menu Mobile
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Destaque automático no Índice Lateral conforme a rolagem da página
+    const sections = document.querySelectorAll('.legal-block');
+    const navItems = document.querySelectorAll('.toc-list a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navItems.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
