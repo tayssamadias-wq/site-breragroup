@@ -1,1 +1,1642 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Klinova by Brera Group — Seu consultório em conformidade, sem complicação</title>
+  <meta name="description" content="Agenda, prontuário, documentos nos modelos da Resolução CFP 06/2019 e organização fiscal num só lugar. Uma solução Brera Group para psicólogos." />
 
+  <!-- Google Fonts: Plus Jakarta Sans, Inter e Fraunces (para fidelidade tipográfica da logo KLINOVA) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brera-dark: #202d10;
+      --brera-deep: #141d09;
+      --klinova-green: #14452f;
+      --brera-olive: #354720;
+      --brera-muted: #57634c;
+      --brera-light-bg: #faf9f5;
+      --brera-surface: #ffffff;
+      --brera-subtle: #f1efe8;
+      --brera-border: rgba(32, 45, 16, 0.11);
+      --brera-border-strong: rgba(32, 45, 16, 0.24);
+      --brera-gold: #c5b386;
+      --brera-gold-light: rgba(197, 179, 134, 0.18);
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+      --transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--brera-light-bg);
+      color: var(--brera-dark);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: -0.025em;
+      color: var(--brera-dark);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================
+       LOGO KLINOVA & CO-BRANDING BRERA GROUP
+       ========================================== */
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      user-select: none;
+    }
+
+    .klinova-wordmark {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 1.55rem;
+      letter-spacing: 0.03em;
+      color: var(--klinova-green);
+      line-height: 1;
+    }
+
+    .brand-divider {
+      width: 1px;
+      height: 22px;
+      background-color: var(--brera-border-strong);
+    }
+
+    .by-brera {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.78rem;
+      color: var(--brera-muted);
+      letter-spacing: 0.02em;
+    }
+
+    .by-brera strong {
+      font-weight: 700;
+      color: var(--brera-dark);
+    }
+
+    /* Caso prefira usar o arquivo JPG enviado, descomente a tag <img> no HTML */
+    .klinova-logo-img {
+      height: 34px;
+      width: auto;
+      display: block;
+    }
+
+    /* ==========================================
+       HEADER / NAVEGAÇÃO
+       ========================================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(250, 249, 245, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--brera-border);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 82px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--brera-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--brera-dark);
+    }
+
+    .nav-cta {
+      padding: 10px 22px;
+      border-radius: 999px;
+      background-color: var(--brera-dark);
+      color: #ffffff !important;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .nav-cta:hover {
+      background-color: var(--klinova-green);
+      transform: translateY(-1px);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--brera-dark);
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    /* ==========================================
+       BOTÕES & BADGES
+       ========================================== */
+    .seal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      background-color: var(--brera-subtle);
+      border: 1px solid var(--brera-border-strong);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brera-dark);
+      margin-bottom: 24px;
+    }
+
+    .seal-badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--klinova-green);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 17px 36px;
+      border-radius: 999px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background-color: var(--brera-dark);
+      color: #ffffff;
+      box-shadow: 0 12px 30px -8px rgba(32, 45, 16, 0.38);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--klinova-green);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px -6px rgba(20, 69, 47, 0.45);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--brera-dark);
+      border: 1px solid var(--brera-border-strong);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--brera-dark);
+      color: #ffffff;
+    }
+
+    /* ==========================================
+       1. TOPO (HERO SECTION)
+       ========================================== */
+    .hero {
+      padding: 165px 0 110px;
+      border-bottom: 1px solid var(--brera-border);
+      background:
+        radial-gradient(circle at 85% 20%, rgba(20, 69, 47, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 15% 85%, rgba(197, 179, 134, 0.14) 0%, transparent 40%),
+        var(--brera-light-bg);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.08rem, 1.4vw, 1.25rem);
+      color: var(--brera-muted);
+      max-width: 580px;
+      margin-bottom: 36px;
+    }
+
+    .hero-cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .launch-price-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--klinova-green);
+      padding-left: 8px;
+    }
+
+    /* Mockup Abstrato da Interface Klinova */
+    .ui-preview {
+      background: var(--brera-surface);
+      border: 1px solid var(--brera-border-strong);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: 0 28px 64px -18px rgba(32, 45, 16, 0.12);
+    }
+
+    .ui-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 18px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--brera-border);
+    }
+
+    .ui-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .ui-dots span {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--brera-border-strong);
+    }
+
+    .ui-badge-cfp {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(20, 69, 47, 0.09);
+      color: var(--klinova-green);
+      letter-spacing: 0.04em;
+    }
+
+    .ui-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .ui-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--brera-light-bg);
+      border: 1px solid var(--brera-border);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+    }
+
+    .ui-row-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .ui-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--brera-dark);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ui-row h4 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .ui-row p {
+      font-size: 0.78rem;
+      color: var(--brera-muted);
+    }
+
+    .ui-status {
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--klinova-green);
+      background: rgba(20, 69, 47, 0.08);
+      padding: 4px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    /* ==========================================
+       2. O PROBLEMA
+       ========================================== */
+    .section {
+      padding: 105px 0;
+    }
+
+    .problem-section {
+      background-color: var(--brera-subtle);
+      border-bottom: 1px solid var(--brera-border);
+    }
+
+    .section-header {
+      max-width: 720px;
+      margin-bottom: 56px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--klinova-green);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(1.85rem, 3.1vw, 2.65rem);
+      font-weight: 600;
+      line-height: 1.18;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .problem-card {
+      background: var(--brera-surface);
+      border: 1px solid var(--brera-border);
+      border-radius: var(--radius-md);
+      padding: 36px 30px;
+      transition: var(--transition);
+    }
+
+    .problem-card:hover {
+      border-color: var(--brera-border-strong);
+      transform: translateY(-3px);
+    }
+
+    .problem-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #8c3b2b;
+      background: rgba(140, 59, 43, 0.08);
+      padding: 5px 12px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+
+    .problem-card h3 {
+      font-size: 1.22rem;
+      margin-bottom: 10px;
+    }
+
+    .problem-card p {
+      color: var(--brera-muted);
+      font-size: 0.98rem;
+    }
+
+    /* ==========================================
+       3. A SOLUÇÃO
+       ========================================== */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+    }
+
+    .solution-card {
+      background: var(--brera-surface);
+      border: 1px solid var(--brera-border);
+      border-radius: var(--radius-md);
+      padding: 38px 34px;
+      display: flex;
+      gap: 22px;
+      align-items: flex-start;
+      transition: var(--transition);
+    }
+
+    .solution-card:hover {
+      border-color: var(--klinova-green);
+      box-shadow: 0 20px 42px -15px rgba(32, 45, 16, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .solution-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--brera-dark);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .solution-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .solution-card p {
+      color: var(--brera-muted);
+      font-size: 0.97rem;
+    }
+
+    /* ==========================================
+       4. COMO FUNCIONA
+       ========================================== */
+    .steps-section {
+      background: var(--brera-dark);
+      color: #ffffff;
+      padding: 100px 0;
+    }
+
+    .steps-section .section-eyebrow {
+      color: var(--brera-gold);
+    }
+
+    .steps-section .section-title {
+      color: #ffffff;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 52px;
+    }
+
+    .step-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 38px 32px;
+      position: relative;
+    }
+
+    .step-num {
+      font-family: 'Fraunces', serif;
+      font-size: 2.4rem;
+      color: var(--brera-gold);
+      line-height: 1;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .step-card p {
+      font-size: 1.12rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.92);
+      line-height: 1.5;
+    }
+
+    /* ==========================================
+       5. PLANOS E TABELA COMPARATIVA
+       ========================================== */
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-bottom: 56px;
+    }
+
+    .price-card {
+      background: var(--brera-surface);
+      border: 1px solid var(--brera-border-strong);
+      border-radius: var(--radius-lg);
+      padding: 44px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .price-card.featured {
+      background: var(--brera-dark);
+      color: #ffffff;
+      border-color: var(--brera-dark);
+      box-shadow: 0 28px 60px -18px rgba(32, 45, 16, 0.35);
+    }
+
+    .price-card.featured h3,
+    .price-card.featured .price-value {
+      color: #ffffff;
+    }
+
+    .bf-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(20, 69, 47, 0.1);
+      color: var(--klinova-green);
+      margin-bottom: 18px;
+    }
+
+    .price-card.featured .bf-badge {
+      background: var(--brera-gold);
+      color: var(--brera-deep);
+    }
+
+    .price-card h3 {
+      font-size: 1.55rem;
+      margin-bottom: 12px;
+    }
+
+    .old-price {
+      font-size: 0.95rem;
+      color: var(--brera-muted);
+      text-decoration: line-through;
+      display: block;
+    }
+
+    .price-card.featured .old-price {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .price-value {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.85rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin: 6px 0 14px;
+    }
+
+    .price-value span {
+      font-size: 1rem;
+      font-weight: 400;
+      opacity: 0.75;
+    }
+
+    .annual-box {
+      background: var(--brera-subtle);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 0.86rem;
+      color: var(--brera-dark);
+      margin-bottom: 28px;
+      border: 1px solid var(--brera-border);
+    }
+
+    .price-card.featured .annual-box {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.14);
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Tabela Comparativa */
+    .table-wrapper {
+      background: var(--brera-surface);
+      border: 1px solid var(--brera-border-strong);
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      box-shadow: 0 16px 40px -15px rgba(32, 45, 16, 0.06);
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 18px 24px;
+      text-align: left;
+      border-bottom: 1px solid var(--brera-border);
+      font-size: 0.94rem;
+    }
+
+    .comparison-table thead th {
+      background: var(--brera-subtle);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--brera-dark);
+    }
+
+    .comparison-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table td:first-child {
+      font-weight: 500;
+      color: var(--brera-dark);
+      width: 40%;
+    }
+
+    .comparison-table td:nth-child(2) {
+      color: var(--brera-muted);
+      width: 30%;
+    }
+
+    .comparison-table td:nth-child(3) {
+      font-weight: 600;
+      color: var(--brera-dark);
+      background: rgba(20, 69, 47, 0.025);
+      width: 30%;
+    }
+
+    .check-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--klinova-green);
+      font-weight: 600;
+    }
+
+    .pricing-footnote {
+      margin-top: 22px;
+      font-size: 0.88rem;
+      color: var(--brera-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* ==========================================
+       6. PERGUNTAS FREQUENTES (FAQ)
+       ========================================== */
+    .faq-section {
+      background-color: var(--brera-subtle);
+      border-top: 1px solid var(--brera-border);
+      border-bottom: 1px solid var(--brera-border);
+    }
+
+    .faq-list {
+      max-width: 880px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: var(--brera-surface);
+      border: 1px solid var(--brera-border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item.active {
+      border-color: var(--brera-dark);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 26px;
+      text-align: left;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.04rem;
+      font-weight: 600;
+      color: var(--brera-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--brera-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .faq-item.active .faq-icon {
+      background: var(--brera-dark);
+      color: #ffffff;
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 26px 24px;
+      color: var(--brera-muted);
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+
+    /* ==========================================
+       7. FORMULÁRIO DE INTERESSE / CADASTRO
+       ========================================== */
+    .form-wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--brera-surface);
+      border: 1px solid var(--brera-border-strong);
+      border-radius: var(--radius-lg);
+      padding: 56px 52px;
+      box-shadow: 0 28px 64px -20px rgba(32, 45, 16, 0.1);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--brera-dark);
+    }
+
+    .form-group label span {
+      font-weight: 400;
+      color: var(--brera-muted);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--brera-border-strong);
+      background-color: var(--brera-light-bg);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--brera-dark);
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--klinova-green);
+      background-color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(20, 69, 47, 0.12);
+    }
+
+    textarea.form-control {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .consent-group {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 8px;
+      font-size: 0.88rem;
+      color: var(--brera-muted);
+    }
+
+    .consent-group input[type="checkbox"] {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--klinova-green);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .form-submit-Feedback {
+      display: none;
+      grid-column: 1 / -1;
+      padding: 18px 22px;
+      border-radius: var(--radius-sm);
+      background: rgba(20, 69, 47, 0.1);
+      border: 1px solid var(--klinova-green);
+      color: var(--klinova-green);
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-top: 12px;
+    }
+
+    /* ==========================================
+       RODAPÉ (FOOTER)
+       ========================================== */
+    .footer {
+      background: var(--brera-light-bg);
+      border-top: 1px solid var(--brera-border);
+      padding: 56px 0 38px;
+      font-size: 0.88rem;
+      color: var(--brera-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    .footer-links a:hover {
+      color: var(--brera-dark);
+      text-decoration: underline;
+    }
+
+    /* ==========================================
+       RESPONSIVIDADE
+       ========================================== */
+    @media (max-width: 992px) {
+      .hero-grid,
+      .problem-grid,
+      .solution-grid,
+      .steps-grid,
+      .pricing-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .form-wrapper {
+        padding: 38px 26px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 82px;
+        left: 0;
+        width: 100%;
+        background: var(--brera-surface);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        gap: 18px;
+        border-bottom: 1px solid var(--brera-border);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 135px 0 80px;
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="https://www.breragroup.com.br/klinova" class="brand-lockup" aria-label="Klinova by Brera Group">
+        <!-- Caso queira usar o arquivo de imagem JPG da logo, descomente a linha abaixo: -->
+        <!-- <img src="Branding Klinova.jpg" alt="Klinova" class="klinova-logo-img" /> -->
+        <span class="klinova-wordmark">KLINOVA</span>
+        <span class="brand-divider"></span>
+        <span class="by-brera">by <strong>Brera</strong> Group</span>
+      </a>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#solucao">Solução</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#planos">Planos</a>
+        <a href="#faq">Perguntas frequentes</a>
+        <a href="https://www.breragroup.com.br">Brera Group</a>
+        <a href="#formulario" class="nav-cta">Quero conhecer</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== 1. TOPO (HERO) ==================== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="seal-badge">Klinova by Brera Group</div>
+        <h1>Seu consultório em conformidade, sem complicação.</h1>
+        <p class="hero-subtitle">
+          Agenda, prontuário, documentos nos modelos da Resolução CFP 06/2019 e organização fiscal num só lugar.
+        </p>
+        <div class="hero-cta-wrap">
+          <a href="#formulario" class="btn btn-primary">
+            Quero conhecer
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <span class="launch-price-note">✦ Preço de lançamento.</span>
+        </div>
+      </div>
+
+      <!-- Painel Visual da Plataforma -->
+      <div class="ui-preview" aria-hidden="true">
+        <div class="ui-topbar">
+          <div class="ui-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="ui-badge-cfp">Alinhado à Res. CFP 06/2019 &amp; LGPD</span>
+        </div>
+
+        <div class="ui-cards">
+          <div class="ui-row">
+            <div class="ui-row-left">
+              <div class="ui-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4>Documentos &amp; Prontuários</h4>
+                <p>Declaração, relatório e laudo nos modelos CFP 06/2019</p>
+              </div>
+            </div>
+            <span class="ui-status">Em conformidade</span>
+          </div>
+
+          <div class="ui-row">
+            <div class="ui-row-left">
+              <div class="ui-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4>Sigilo, Ética &amp; LGPD</h4>
+                <p>Consentimento, 2FA e registro de acessos</p>
+              </div>
+            </div>
+            <span class="ui-status">Criptografado</span>
+          </div>
+
+          <div class="ui-row">
+            <div class="ui-row-left">
+              <div class="ui-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="12" y1="1" x2="12" y2="23"></line>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <div>
+                <h4>Fechamento Fiscal Simplificado</h4>
+                <p>Receitas, recibos e relatório mensal para o contador</p>
+              </div>
+            </div>
+            <span class="ui-status">Organizado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 2. O PROBLEMA ==================== -->
+  <section class="section problem-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">A REALIDADE DO CONSULTÓRIO</span>
+        <h2 class="section-title">Atender já dá trabalho. Você não precisa viver com medo de errar.</h2>
+      </div>
+
+      <div class="problem-grid">
+        <div class="problem-card">
+          <span class="problem-tag">Documentos</span>
+          <h3>Insegurança técnica na emissão</h3>
+          <p>“Declaração, relatório, laudo: qual modelo usar e o que precisa constar?”</p>
+        </div>
+
+        <div class="problem-card">
+          <span class="problem-tag">Sigilo</span>
+          <h3>Vulnerabilidade de dados sensíveis</h3>
+          <p>“Onde ficam os dados dos seus pacientes e quem pode acessá-los?”</p>
+        </div>
+
+        <div class="problem-card">
+          <span class="problem-tag">Fiscal</span>
+          <h3>Desorganização financeira e contábil</h3>
+          <p>“Receitas, recibos e impostos espalhados entre planilhas e pastas.”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. A SOLUÇÃO ==================== -->
+  <section id="solucao" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">A SOLUÇÃO KLINOVA</span>
+        <h2 class="section-title">Estrutura completa para você focar exclusivamente na clínica.</h2>
+      </div>
+
+      <div class="solution-grid">
+        <div class="solution-card">
+          <div class="solution-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+          </div>
+          <div>
+            <h3>Documentos prontos</h3>
+            <p>Modelos alinhados à Resolução CFP 06/2019, para você preencher e emitir.</p>
+          </div>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <div>
+            <h3>Sigilo e LGPD</h3>
+            <p>Consentimento, controle de acesso e registro de acessos desde o primeiro login.</p>
+          </div>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+              <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3>Fiscal simplificado</h3>
+            <p>Receitas organizadas, recibos e relatório mensal para o contador.</p>
+          </div>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <div>
+            <h3>Tudo num lugar</h3>
+            <p>Agenda com lembretes por WhatsApp, prontuário e evolução do paciente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. COMO FUNCIONA ==================== -->
+  <section id="como-funciona" class="steps-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">COMO FUNCIONA</span>
+        <h2 class="section-title">Três passos para organizar toda a rotina do consultório.</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-num">01.</span>
+          <p>Cadastre seus pacientes e organize a agenda.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">02.</span>
+          <p>Registre prontuário e evolução.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">03.</span>
+          <p>Emita documentos e feche o mês com o relatório fiscal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 5. PLANOS ==================== -->
+  <section id="planos" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">PLANOS E INVESTIMENTO</span>
+        <h2 class="section-title">Escolha a estrutura ideal para o momento da sua clínica.</h2>
+      </div>
+
+      <!-- Cards Principais de Preço -->
+      <div class="pricing-cards">
+        <!-- Plano Essencial -->
+        <div class="price-card">
+          <div>
+            <span class="bf-badge">Black Friday 50% OFF</span>
+            <h3>Essencial</h3>
+            <span class="old-price">De R$ 98/mês</span>
+            <div class="price-value">R$ 49<span>/mês</span></div>
+            <div class="annual-box">
+              <strong>Plano Anual:</strong> 12 mensalidades pelo preço de 10 — <strong>R$ 490/ano</strong>
+            </div>
+          </div>
+          <a href="#formulario" class="btn btn-outline" onclick="selecionarPlano('Essencial')">
+            Quero o plano Essencial
+          </a>
+        </div>
+
+        <!-- Plano Profissional -->
+        <div class="price-card featured">
+          <div>
+            <span class="bf-badge">Black Friday 50% OFF • Mais Completo</span>
+            <h3>Profissional</h3>
+            <span class="old-price">De R$ 178/mês</span>
+            <div class="price-value">R$ 89<span>/mês</span></div>
+            <div class="annual-box">
+              <strong>Plano Anual:</strong> 12 mensalidades pelo preço de 10 — <strong>R$ 890/ano</strong>
+            </div>
+          </div>
+          <a href="#formulario" class="btn btn-primary" style="background:#fff; color:var(--brera-dark);" onclick="selecionarPlano('Profissional')">
+            Quero o plano Profissional
+          </a>
+        </div>
+      </div>
+
+      <!-- Tabela Comparativa Detalhada -->
+      <div class="table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Recurso</th>
+              <th>Essencial · R$ 49/mês <small style="display:block; font-weight:400; opacity:0.75;">(Normal: R$ 98/mês)</small></th>
+              <th>Profissional · R$ 89/mês <small style="display:block; font-weight:400; opacity:0.75;">(Normal: R$ 178/mês)</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Integração com Google Agenda</td>
+              <td><span class="check-badge">✓ Sim</span></td>
+              <td><span class="check-badge">✓ Sim</span></td>
+            </tr>
+            <tr>
+              <td>Prontuário, evolução e jornada personalizada do paciente</td>
+              <td><span class="check-badge">✓ Sim</span></td>
+              <td><span class="check-badge">✓ Sim</span></td>
+            </tr>
+            <tr>
+              <td>Documentos nos modelos da Res. 06/2019</td>
+              <td><span class="check-badge">✓ Sim</span></td>
+              <td><span class="check-badge">✓ Sim</span></td>
+            </tr>
+            <tr>
+              <td>Segurança, LGPD e termos de consentimento</td>
+              <td><span class="check-badge">✓ Sim</span></td>
+              <td><span class="check-badge">✓ Sim</span></td>
+            </tr>
+            <tr>
+              <td>Pacientes ativos</td>
+              <td>Até 15</td>
+              <td>Ilimitados</td>
+            </tr>
+            <tr>
+              <td>Automação e lembretes por WhatsApp</td>
+              <td>Até 15</td>
+              <td>Ilimitado</td>
+            </tr>
+            <tr>
+              <td>Modelos de prontuário</td>
+              <td>Modelos padrão</td>
+              <td>Personalizáveis</td>
+            </tr>
+            <tr>
+              <td>Financeiro</td>
+              <td>Controle básico de recebimentos</td>
+              <td>Completo, com relatórios</td>
+            </tr>
+            <tr>
+              <td>Fiscal</td>
+              <td>Dashboard de receitas organizadas e relatório mensal básico para o contador</td>
+              <td>Pacote fiscal completo: Dashboard detalhado, exportações, emissão de NFS-e* ou Receita Saúde e alertas</td>
+            </tr>
+            <tr>
+              <td>Transcrição da sessão</td>
+              <td>Com custo adicional</td>
+              <td>Gratuita</td>
+            </tr>
+            <tr>
+              <td>Migração de plataforma</td>
+              <td>Com custo adicional</td>
+              <td>Gratuita</td>
+            </tr>
+            <tr>
+              <td>Suporte</td>
+              <td>Chat e e-mail</td>
+              <td>Prioritário</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pricing-footnote">
+        <p><strong>Anual:</strong> 12 mensalidades pelo preço de 10 (R$ 490 no plano Essencial e R$ 890 no plano Profissional por ano).</p>
+        <p>*Em breve: cobrança automática por Pix e cartão e emissão de NFS-e integrada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 6. PERGUNTAS FREQUENTES ==================== -->
+  <section id="faq" class="section faq-section">
+    <div class="container">
+      <div class="section-header" style="margin: 0 auto 52px; text-align: center;">
+        <span class="section-eyebrow">TIRE SUAS DÚVIDAS</span>
+        <h2 class="section-title">Perguntas frequentes</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>O Klinova usa inteligência artificial?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer" style="max-height: 200px;">
+            <div class="faq-answer-inner">
+              Não para diagnóstico nem para sugestões clínicas. Uma transcrição opcional da sessão está planejada para uma fase futura, sempre com consentimento do paciente.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Os documentos são aprovados pelo CFP?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Os modelos seguem a Resolução CFP 06/2019, e a responsabilidade pelo conteúdo dos documentos é do profissional.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Meus dados e os dos meus pacientes estão seguros?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Usamos criptografia, autenticação em dois fatores, controle de acesso e registro de acessos. Descrevemos nossas práticas na Política de Privacidade.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>O Klinova substitui meu contador?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Não. Ele organiza suas receitas e gera o relatório para o seu contador.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>E se eu cancelar?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Você mantém acesso de leitura e exportação aos seus prontuários.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Quando começa?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              O piloto foi lançado em novembro de 2026 e estamos a todo vapor para trazer novas integrações e tecnologias já no próximo semestre.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Se o paciente cancelar o processo psicoterapêutico comigo, ele se mantém ativo?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Não, o limite conta apenas para pacientes ativos. Se o paciente interromper o processo, você pode arquivá-lo e pacientes arquivados não contam no limite de 15 pacientes (plano Essencial).
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Dei alta para um paciente, como fica em relação às informações dele na plataforma?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              A Klinova nunca tranca o acesso aos prontuários, mesmo que você não seja mais nosso cliente. Se você cancelar ou ultrapassar o limite, continuará com acesso de leitura e exportação, com garantia de guarda dos registros por 5 anos após a última sessão.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Eu atualmente uso outra plataforma, quero migrar para vocês, vocês ajudam com isso?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sim, fazemos a migração sem nenhum custo adicional no plano Profissional (ou sob taxa única no Essencial), você só precisa solicitar por e-mail ou chat e nossos especialistas cuidarão disso para você.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 7. FORMULÁRIO ==================== -->
+  <section id="formulario" class="section">
+    <div class="container">
+      <div class="form-wrapper">
+        <span class="section-eyebrow">ACESSO COM PREÇO DE LANÇAMENTO</span>
+        <h2 class="section-title" style="font-size: 2rem; margin-bottom: 10px;">Quero conhecer o Klinova</h2>
+        <p style="color: var(--brera-muted);">Preencha seus dados abaixo para garantir a condição de lançamento e falar com nossa equipe.</p>
+
+        <!-- Caso utilize Web3Forms, basta inserir sua access_key no input hidden abaixo -->
+        <form id="klinovaForm" class="form-grid" action="https://api.web3forms.com/submit" method="POST">
+          <!-- <input type="hidden" name="access_key" value="SUA_CHAVE_AQUI"> -->
+
+          <div class="form-group">
+            <label for="nome">Nome completo *</label>
+            <input type="text" id="nome" name="nome" class="form-control" placeholder="Seu nome" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="seu@email.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp *</label>
+            <input type="tel" id="whatsapp" name="whatsapp" class="form-control" placeholder="(00) 00000-0000" required />
+          </div>
+
+          <div class="form-group">
+            <label for="crp">CRP <span>(opcional)</span></label>
+            <input type="text" id="crp" name="crp" class="form-control" placeholder="Ex: 12/00000" />
+          </div>
+
+          <div class="form-group">
+            <label for="pacientes_ativos">Pacientes ativos *</label>
+            <select id="pacientes_ativos" name="pacientes_ativos" class="form-control" required>
+              <option value="" disabled selected>Selecione uma faixa</option>
+              <option value="Até 5">Até 5</option>
+              <option value="De 6 a 9">De 6 a 9</option>
+              <option value="De 10 a 14">De 10 a 14</option>
+              <option value="15 ou mais">15 ou mais</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="plano_interesse">Plano de interesse *</label>
+            <select id="plano_interesse" name="plano_interesse" class="form-control" required>
+              <option value="" disabled selected>Selecione o plano</option>
+              <option value="Essencial (R$ 49/mês)">Essencial · R$ 49/mês (Black Friday)</option>
+              <option value="Profissional (R$ 89/mês)">Profissional · R$ 89/mês (Black Friday)</option>
+              <option value="Essencial Anual (R$ 490/ano)">Essencial Anual · R$ 490/ano</option>
+              <option value="Profissional Anual (R$ 890/ano)">Profissional Anual · R$ 890/ano</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label for="ferramenta_atual">Ferramenta que usa hoje *</label>
+            <input type="text" id="ferramenta_atual" name="ferramenta_atual" class="form-control" placeholder="Ex: Planilhas, Google Docs, Papel, outro sistema..." required />
+          </div>
+
+          <div class="form-group full">
+            <label for="maior_dor">Qual é a sua maior dor na gestão do consultório hoje? *</label>
+            <textarea id="maior_dor" name="maior_dor" class="form-control" placeholder="Conte brevemente o que mais toma seu tempo ou gera insegurança..." required></textarea>
+          </div>
+
+          <label class="consent-group">
+            <input type="checkbox" name="consentimento_lgpd" required />
+            <span>Autorizo a Brera Group a me contatar sobre o Klinova e a tratar meus dados para esse fim, conforme a <a href="#" style="text-decoration: underline; color: var(--brera-dark);">Política de Privacidade</a>.</span>
+          </label>
+
+          <div class="form-group full" style="margin-top: 10px;">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Quero conhecer o Klinova
+            </button>
+          </div>
+
+          <div id="formFeedback" class="form-submit-Feedback">
+            Recebemos suas informações com sucesso! Nossa equipe entrará em contato em breve.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RODAPÉ ==================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <a href="https://www.breragroup.com.br" class="brand-lockup">
+          <span class="klinova-wordmark" style="font-size: 1.25rem;">KLINOVA</span>
+          <span class="brand-divider"></span>
+          <span class="by-brera">by <strong>Brera</strong> Group</span>
+        </a>
+        <p style="margin-top: 8px; font-size: 0.82rem;">© 2026 Brera Group Ltda. Todos os direitos reservados.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://www.breragroup.com.br">Página Institucional Brera Group</a>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Conformidade LGPD</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script>
+    // Menu Mobile
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Acordeão FAQ
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        const answer = faqItem.querySelector('.faq-answer');
+        const isOpen = faqItem.classList.contains('active');
+
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('active');
+          item.querySelector('.faq-answer').style.maxHeight = null;
+        });
+
+        if (!isOpen) {
+          faqItem.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Pré-seleciona o plano no formulário quando a pessoa clica no card de preço
+    function selecionarPlano(plano) {
+      const select = document.getElementById('plano_interesse');
+      if (plano === 'Essencial') {
+        select.value = 'Essencial (R$ 49/mês)';
+      } else if (plano === 'Profissional') {
+        select.value = 'Profissional (R$ 89/mês)';
+      }
+    }
+
+    // Máscara simples de WhatsApp
+    const whatsappInput = document.getElementById('whatsapp');
+    whatsappInput.addEventListener('input', (e) => {
+      let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+      e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+    });
+
+    // Tratamento visual de envio do formulário
+    const klinovaForm = document.getElementById('klinovaForm');
+    const formFeedback = document.getElementById('formFeedback');
+
+    klinovaForm.addEventListener('submit', function(e) {
+      // Se ainda não tiver colocado a chave do Web3Forms, simula o envio sem erro de página
+      const hasAccessKey = klinovaForm.querySelector('input[name="access_key"]');
+      if (!hasAccessKey) {
+        e.preventDefault();
+        formFeedback.style.display = 'block';
+        klinovaForm.reset();
+      }
+    });
+  </script>
+</body>
+</html>
