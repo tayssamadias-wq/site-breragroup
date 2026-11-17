@@ -214,7 +214,7 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 24px;
+      gap: 20px;
       font-size: 0.85rem;
       color: var(--brera-muted);
       padding-top: 24px;
@@ -289,7 +289,6 @@
       align-items: start;
     }
 
-    /* Menu Lateral Fixo (Sticky TOC) */
     .legal-sidebar {
       position: sticky;
       top: 110px;
@@ -362,7 +361,6 @@
       background: var(--klinova-green);
     }
 
-    /* Conteúdo Jurídico e Técnico */
     .legal-content {
       display: flex;
       flex-direction: column;
@@ -431,7 +429,6 @@
       font-weight: bold;
     }
 
-    /* Tabela de Papéis na LGPD */
     .role-table-wrap {
       overflow-x: auto;
       margin: 22px 0;
@@ -464,7 +461,6 @@
       border-bottom: none;
     }
 
-    /* Callout de Destaque Ético */
     .ethical-callout {
       background: rgba(20, 69, 47, 0.05);
       border-left: 4px solid var(--klinova-green);
@@ -505,6 +501,12 @@
       font-size: 0.92rem;
     }
 
+    .footer-brand small {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.82rem;
+    }
+
     .footer-nav-links {
       display: flex;
       flex-wrap: wrap;
@@ -530,6 +532,11 @@
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
+    }
+
+    .footer-legal a:hover {
+      color: var(--brera-dark);
+      text-decoration: underline;
     }
 
     /* ==========================================
@@ -637,7 +644,7 @@
       </p>
 
       <div class="meta-bar">
-        <span><strong>Entidade Responsável:</strong> Brera Group Ltda</span>
+        <span><strong>Entidade Responsável:</strong> Brera Desenvolvimento de Softwares Ltda (CNPJ 70.168.465/0001-31)</span>
         <span>•</span>
         <span><strong>Escopo:</strong> Ecossistema Brera Group &amp; Plataforma Klinova</span>
         <span>•</span>
@@ -659,7 +666,7 @@
           </svg>
         </div>
         <h3>Sigilo Clínico Blindado</h3>
-        <p>Criptografia de ponta em trânsito e em repouso, autenticação em dois fatores (2FA) e trilha de auditoria de acessos desde o primeiro login.</p>
+        <p>Criptografia AES-256-GCM, autenticação em dois fatores (2FA) e trilha de auditoria imutável desde o primeiro login.</p>
       </div>
 
       <div class="highlight-card">
@@ -716,7 +723,7 @@
 
       <div class="sidebar-cta">
         <p>Precisa exercer algum direito previsto na LGPD ou falar com nosso Encarregado de Dados (DPO)?</p>
-        <a href="https://www.breragroup.com.br/contato" class="sidebar-btn">Acionar Canal LGPD</a>
+        <a href="mailto:klinova@breragroup.com.br?subject=Solicita%C3%A7%C3%A3o%20LGPD%20%E2%80%94%20Brera%20Group" class="sidebar-btn">Acionar Canal LGPD</a>
       </div>
     </aside>
 
@@ -728,7 +735,7 @@
         <span class="block-tag">01 • POLÍTICA DE PRIVACIDADE</span>
         <h2>Visão Geral e Compromisso Institucional</h2>
         <p>
-          A <strong>Brera Group Ltda</strong> ("Brera Group"), pessoa jurídica de direito privado, atua como uma healthtech especializada em gestão em saúde e desenvolvedora da plataforma proprietária <strong>Klinova</strong>. Esta Política de Privacidade e Conformidade LGPD descreve, com transparência e rigor técnico, como tratamos e protegemos informações em nosso site institucional (<code>www.breragroup.com.br</code>), na página do software (<code>www.breragroup.com.br/klinova</code>) e no ambiente operacional da aplicação.
+          A <strong>Brera Desenvolvimento de Softwares Ltda</strong> (inscrita no CNPJ sob o nº <strong>70.168.465/0001-31</strong>, doravante denominada "Brera Group"), atua como healthtech especializada em gestão em saúde e desenvolvedora da plataforma proprietária <strong>Klinova</strong>. Esta Política de Privacidade e Conformidade LGPD descreve, com transparência e rigor técnico, como tratamos e protegemos informações em nosso site institucional (<code>www.breragroup.com.br</code>), na página do produto (<code>www.breragroup.com.br/klinova</code>) e no ambiente operacional da aplicação (<code>klinova.breragroup.com.br</code>).
         </p>
         <p>
           Compreendemos que a prática da Psicologia repousa sobre uma relação de confiança inviolável. Por essa razão, toda a nossa arquitetura segue o princípio de <strong>Privacy by Design e Privacy by Default</strong> (Privacidade desde a Concepção e por Padrão), garantindo que a proteção aos dados pessoais e aos dados pessoais sensíveis de saúde ocorra desde a primeira linha de código.
@@ -756,14 +763,14 @@
             <tbody>
               <tr>
                 <td><strong>Dados Cadastrais do Psicólogo e Visitantes do Site</strong> (Nome, CRP, e-mail, WhatsApp, faturamento da assinatura)</td>
-                <td><strong>Brera Group Ltda</strong></td>
+                <td><strong>Brera Desenvolvimento de Softwares Ltda</strong></td>
                 <td>Infraestrutura tecnológica homologada pela Brera Group</td>
                 <td>Execução de Contrato (Art. 7º, V), Consentimento (Art. 7º, I) e Obrigação Legal/Fiscal (Art. 7º, II)</td>
               </tr>
               <tr>
                 <td><strong>Dados Clínicos, Prontuários, Evoluções e Documentos dos Pacientes</strong> inseridos no Klinova</td>
                 <td><strong>O Psicólogo(a) / Clínica Assinante</strong></td>
-                <td><strong>Brera Group Ltda (via plataforma Klinova)</strong></td>
+                <td><strong>Brera Desenvolvimento de Softwares Ltda (via plataforma Klinova)</strong></td>
                 <td>Tutela da Saúde (Art. 11, II, 'f'), Cumprimento de Obrigação Regulatória pelo CRP/CFP (Art. 11, II, 'a') e Consentimento específico</td>
               </tr>
             </tbody>
@@ -812,10 +819,10 @@
           Para cumprir o Art. 46 da LGPD e o dever de sigilo previsto no <strong>Art. 9º do Código de Ética Profissional do Psicólogo</strong>, o Klinova emprega múltiplas camadas de defesa técnica e administrativa:
         </p>
         <ul class="legal-list">
-          <li><strong>Criptografia em Trânsito e em Repouso:</strong> Toda comunicação entre o navegador do profissional e nossos servidores ocorre sob protocolo criptográfico <code>TLS 1.3</code> (HTTPS estrito). Os dados sensíveis e prontuários armazenados em banco de dados contam com criptografia em repouso padrão <code>AES-256</code>.</li>
+          <li><strong>Criptografia em Trânsito e em Repouso:</strong> Toda comunicação entre o navegador do profissional e nossos servidores ocorre sob protocolo criptográfico <code>TLS 1.3</code> (HTTPS estrito). Os dados clínicos sensíveis (evoluções de prontuário e fichas de anamnese) são protegidos com criptografia autenticada <code>AES-256-GCM</code> e verificação de integridade via hash <code>SHA-256</code>.</li>
           <li><strong>Autenticação em Dois Fatores (2FA):</strong> Disponibilizamos e recomendamos a verificação em duas etapas desde o primeiro login, impedindo acessos não autorizados mesmo em caso de comprometimento de senha no dispositivo do usuário.</li>
           <li><strong>Controle Estrito de Acesso e Isolamento Lógico:</strong> Cada consultório opera em partição lógica isolada. Apenas o profissional titular da conta possui permissão de leitura e escrita sobre os prontuários de seus pacientes.</li>
-          <li><strong>Registro Imutável de Acessos (Logs de Auditoria):</strong> A plataforma registra automaticamente data, hora, endereço IP e ação realizada em cada sessão autenticada, assegurando rastreabilidade completa para fins de conformidade com a LGPD.</li>
+          <li><strong>Registro Imutável de Acessos (Logs de Auditoria):</strong> A plataforma registra automaticamente data, hora e ação realizada em cada sessão autenticada em modo estritamente <em>append-only</em>, assegurando rastreabilidade completa para fins de conformidade com a LGPD.</li>
           <li><strong>Gestão de Consentimento Nativa:</strong> Ferramentas integradas para registro e guarda dos termos de consentimento do paciente desde o início do acompanhamento psicoterapêutico.</li>
         </ul>
       </article>
@@ -830,7 +837,7 @@
         <ul class="legal-list">
           <li><strong>Proibição de IA Diagnóstica ou Prescritiva:</strong> O Klinova <strong>não utiliza inteligência artificial</strong> para elaborar diagnósticos, sugerir condutas clínicas, interpretar sintomas ou substituir o julgamento técnico do psicólogo.</li>
           <li><strong>Zero Treinamento com Dados Clínicos:</strong> Nenhum dado inserido em prontuários, evoluções ou documentos psicológicos é compartilhado com terceiros ou utilizado para treinar modelos públicos ou privados de linguagem (LLMs).</li>
-          <li><strong>Transcrição Opcional Mediante Consentimento:</strong> Recursos de transcrição automatizada de sessões são estritamente opcionais, desativados por padrão e condicionados à coleta prévia de consentimento livre, informado e inequívoco do paciente.</li>
+          <li><strong>Autonomia Integral do Profissional:</strong> Todo registro clínico e documental no Klinova é redigido, revisado e assinado exclusivamente pelo(a) psicólogo(a) responsável pelo atendimento.</li>
         </ul>
       </article>
 
@@ -858,7 +865,7 @@
         <ul class="legal-list">
           <li><strong>Confirmação e Acesso:</strong> Saber se realizamos algum tratamento com seus dados e obter cópia clara das informações registradas.</li>
           <li><strong>Correção e Atualização:</strong> Solicitar a retificação de dados incompletos, inexatos ou desatualizados.</li>
-          <li><strong>Portabilidade:</strong> Exportar seus registros e relatórios em formato estruturado e interoperável.</li>
+          <li><strong>Portabilidade:</strong> Exportar seus registros e relatórios em formato estruturado e interoperável diretamente na plataforma ou por solicitação.</li>
           <li><strong>Anonimização, Bloqueio ou Eliminação:</strong> Requerer a exclusão de dados desnecessários ou tratados mediante consentimento, respeitados os prazos legais de guarda obrigatória (como obrigações fiscais e o prazo ético de 5 anos de guarda documental clínica pelo psicólogo).</li>
           <li><strong>Revogação do Consentimento:</strong> Desinscrever-se de comunicações institucionais ou revogar autorizações concedidas anteriormente.</li>
         </ul>
@@ -876,22 +883,22 @@
         </p>
         <h3>8.1. Responsabilidade Técnica pelos Documentos Psicológicos</h3>
         <p>
-          O Klinova disponibiliza estruturas e modelos documentais (declarações, atestados, relatórios, laudos e pareceres) desenhados em alinhamento formal com a <strong>Resolução CFP nº 06/2019</strong>. Contudo, a elaboração técnica, a veracidade das informações, a fundamentação teórico-metodológica e a assinatura dos documentos emitidos são de <strong>responsabilidade exclusiva e indelegável do psicólogo(a)</strong> regularmente inscrito no respectivo Conselho Regional de Psicologia (CRP).
+          O Klinova disponibiliza estruturas e modelos documentais (declarações, atestados, relatórios e laudos) desenhados em alinhamento formal com a <strong>Resolução CFP nº 06/2019</strong>. Contudo, a elaboração técnica, a veracidade das informações, a fundamentação teórico-metodológica e a assinatura dos documentos emitidos são de <strong>responsabilidade exclusiva e indelegável do psicólogo(a)</strong> regularmente inscrito no respectivo Conselho Regional de Psicologia (CRP).
         </p>
 
         <h3>8.2. Organização Fiscal vs. Assessoria Contábil</h3>
         <p>
-          Os módulos financeiros e fiscais do Klinova (controle de recebimentos, emissão de recibos, organização de dados para o Receita Saúde, NFS-e e geração do relatório mensal) têm caráter organizacional e tecnológico. A plataforma otimiza a rotina e reduz erros manuais, mas não substitui a atuação técnica do contador habilitado do profissional.
+          Os módulos financeiros e fiscais do Klinova (controle de recebimentos, emissão de recibos individuais em PDF, organização e exportação estruturada de dados para o Receita Saúde e geração do relatório mensal contábil) têm caráter organizacional e tecnológico. A plataforma otimiza a rotina e reduz erros manuais, mas não substitui a atuação técnica do contador habilitado do profissional.
         </p>
 
         <h3>8.3. Propriedade Intelectual</h3>
         <p>
-          As marcas <strong>Brera Group</strong> e <strong>Klinova</strong>, bem como o código-fonte, design de interface, arquitetura visual, logotipos e textos institucionais, são de titularidade exclusiva da <strong>Brera Group Ltda</strong>, sendo vedada sua reprodução ou engenharia reversa sem autorização expressa.
+          As marcas <strong>Brera Group</strong> e <strong>Klinova</strong>, bem como o código-fonte, design de interface, arquitetura visual, logotipos e textos institucionais, são de titularidade exclusiva da <strong>Brera Desenvolvimento de Softwares Ltda</strong>, sendo vedada sua reprodução ou engenharia reversa sem autorização expressa.
         </p>
 
         <h3>8.4. Canal de Governança e Contato</h3>
         <p>
-          Para dúvidas sobre esta Política de Privacidade, Termos de Uso ou solicitações relativas à LGPD, entre em contato diretamente pelo nosso canal oficial em <a href="https://www.breragroup.com.br/contato" style="color: var(--klinova-green); font-weight: 600; text-decoration: underline;">www.breragroup.com.br/contato</a>.
+          Para dúvidas sobre esta Política de Privacidade, Termos de Uso ou solicitações relativas à LGPD, entre em contato diretamente com nosso canal oficial de governança pelo e-mail <a href="mailto:klinova@breragroup.com.br" style="color: var(--klinova-green); font-weight: 600; text-decoration: underline;">klinova@breragroup.com.br</a>, pelo WhatsApp corporativo <strong>(48) 3191-0781</strong> ou através da página <a href="https://www.breragroup.com.br/contato" style="color: var(--klinova-green); font-weight: 600; text-decoration: underline;">www.breragroup.com.br/contato</a>.
         </p>
       </article>
 
@@ -914,6 +921,7 @@
             <span class="logo-light">Group</span>
           </a>
           <p>Brera Group — Healthtech &amp; Gestão em Saúde</p>
+          <small>Brera Desenvolvimento de Softwares Ltda • CNPJ 70.168.465/0001-31 • klinova@breragroup.com.br</small>
         </div>
 
         <div class="footer-nav-links">
@@ -925,15 +933,13 @@
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 Brera Group. Todos os direitos reservados.</div>
+        <div>© 2026 Brera Desenvolvimento de Softwares Ltda. Todos os direitos reservados.</div>
         <div class="footer-legal">
           <a href="https://www.breragroup.com.br/privacidade#privacidade">Política de Privacidade</a>
           <span>|</span>
           <a href="https://www.breragroup.com.br/privacidade#termos">Termos de Uso</a>
           <span>|</span>
           <a href="https://www.breragroup.com.br/privacidade#lgpd">Conformidade LGPD</a>
-          <span>|</span>
-          <span>Brera Group Ltda</span>
         </div>
       </div>
     </div>
@@ -941,7 +947,6 @@
 
   <!-- ==================== SCRIPTS ==================== -->
   <script>
-    // Menu Mobile
     const mobileToggle = document.getElementById('mobileToggle');
     const navLinks = document.getElementById('navLinks');
 
@@ -949,7 +954,6 @@
       navLinks.classList.toggle('active');
     });
 
-    // Destaque automático no Índice Lateral conforme a rolagem da página
     const sections = document.querySelectorAll('.legal-block');
     const navItems = document.querySelectorAll('.toc-list a');
 
