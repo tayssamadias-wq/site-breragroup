@@ -28,7 +28,7 @@
       --radius-sm: 10px;
       --radius-md: 18px;
       --radius-lg: 26px;
-      --transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: all 0.36s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * {
@@ -72,6 +72,47 @@
     }
 
     /* ==========================================
+       MICROINTERAÇÕES & SCROLL REVEAL SUTIL
+       ========================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.08s; }
+    .delay-2 { transition-delay: 0.16s; }
+    .delay-3 { transition-delay: 0.24s; }
+
+    @keyframes subtleFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 0.65; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .ui-preview {
+        animation: none !important;
+      }
+    }
+
+    /* ==========================================
        LOGO KLINOVA & CO-BRANDING BRERA GROUP
        ========================================== */
     .brand-lockup {
@@ -109,7 +150,7 @@
     }
 
     /* ==========================================
-       HEADER / NAVEGAÇÃO
+       HEADER / NAVEGAÇÃO DINÂMICA
        ========================================== */
     .navbar {
       position: fixed;
@@ -117,10 +158,16 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      background: rgba(250, 249, 245, 0.88);
+      background: rgba(250, 249, 245, 0.84);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--brera-border);
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(250, 249, 245, 0.95);
+      box-shadow: 0 10px 30px -15px rgba(32, 45, 16, 0.08);
     }
 
     .navbar-inner {
@@ -128,6 +175,11 @@
       align-items: center;
       justify-content: space-between;
       height: 80px;
+      transition: height 0.3s ease;
+    }
+
+    .navbar.scrolled .navbar-inner {
+      height: 70px;
     }
 
     .nav-links {
@@ -140,6 +192,22 @@
       font-size: 0.9rem;
       font-weight: 500;
       color: var(--brera-muted);
+      position: relative;
+    }
+
+    .nav-links a:not(.nav-cta)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 1.5px;
+      background-color: var(--klinova-green);
+      transition: width 0.28s ease;
+    }
+
+    .nav-links a:not(.nav-cta):hover::after {
+      width: 100%;
     }
 
     .nav-links a:hover {
@@ -158,6 +226,7 @@
       color: #ffffff !important;
       font-size: 0.86rem;
       font-weight: 600;
+      box-shadow: 0 6px 18px -6px rgba(32, 45, 16, 0.3);
     }
 
     .nav-cta:hover {
@@ -200,6 +269,7 @@
       height: 7px;
       border-radius: 50%;
       background-color: var(--klinova-green);
+      animation: pulseDot 2.4s infinite ease-in-out;
     }
 
     .btn {
@@ -215,6 +285,14 @@
       cursor: pointer;
       border: none;
       transition: var(--transition);
+    }
+
+    .btn svg {
+      transition: transform 0.28s ease;
+    }
+
+    .btn:hover svg {
+      transform: translateX(3px);
     }
 
     .btn-primary {
@@ -298,13 +376,14 @@
       padding-left: 4px;
     }
 
-    /* Painel Visual da Plataforma na Hero */
+    /* Painel Visual da Plataforma na Hero com Flutuação Sutil */
     .ui-preview {
       background: var(--brera-surface);
       border: 1px solid var(--brera-border-strong);
       border-radius: var(--radius-lg);
       padding: 24px;
-      box-shadow: 0 24px 56px -18px rgba(32, 45, 16, 0.12);
+      box-shadow: 0 28px 60px -18px rgba(32, 45, 16, 0.12);
+      animation: subtleFloat 7s ease-in-out infinite;
     }
 
     .ui-topbar {
@@ -352,6 +431,13 @@
       border: 1px solid var(--brera-border);
       border-radius: var(--radius-sm);
       padding: 13px 16px;
+      transition: var(--transition);
+    }
+
+    .ui-row:hover {
+      border-color: rgba(20, 69, 47, 0.3);
+      background: #ffffff;
+      transform: translateX(3px);
     }
 
     .ui-row-left {
@@ -391,6 +477,32 @@
       padding: 4px 9px;
       border-radius: 6px;
       white-space: nowrap;
+    }
+
+    /* ==========================================
+       EFEITO SPOTLIGHT SUTIL NOS CARDS
+       ========================================== */
+    .spotlight-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spotlight-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        480px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(20, 69, 47, 0.055),
+        transparent 40%
+      );
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+
+    .spotlight-card:hover::before {
+      opacity: 1;
     }
 
     /* ==========================================
@@ -442,7 +554,8 @@
 
     .problem-card:hover {
       border-color: var(--brera-border-strong);
-      transform: translateY(-3px);
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px -16px rgba(32, 45, 16, 0.08);
     }
 
     .problem-tag {
@@ -492,7 +605,7 @@
     .solution-card:hover {
       border-color: var(--klinova-green);
       box-shadow: 0 20px 42px -15px rgba(32, 45, 16, 0.08);
-      transform: translateY(-3px);
+      transform: translateY(-4px);
     }
 
     .solution-icon {
@@ -505,6 +618,12 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      transition: transform 0.35s ease, background-color 0.35s ease;
+    }
+
+    .solution-card:hover .solution-icon {
+      background: var(--klinova-green);
+      transform: scale(1.06);
     }
 
     .solution-card h3 {
@@ -517,7 +636,7 @@
       font-size: 0.95rem;
     }
 
-    /* Carrossel Minimalista e Silencioso */
+    /* Carrossel Minimalista com Barra de Progresso Sutil */
     .showcase-minimal {
       max-width: 1040px;
       margin: 0 auto;
@@ -541,13 +660,13 @@
       overflow: hidden;
       background: var(--brera-surface);
       border: 1px solid var(--brera-border-strong);
-      box-shadow: 0 28px 68px -20px rgba(32, 45, 16, 0.13);
+      box-shadow: 0 30px 72px -20px rgba(32, 45, 16, 0.14);
     }
 
     .carousel-track {
       display: flex;
       width: 100%;
-      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: transform;
     }
 
@@ -560,6 +679,23 @@
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    .carousel-progress-wrap {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(32, 45, 16, 0.08);
+      z-index: 12;
+    }
+
+    .carousel-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--klinova-green);
+      transition: width 0.1s linear;
     }
 
     .carousel-arrow {
@@ -628,7 +764,7 @@
       background: rgba(32, 45, 16, 0.2);
       cursor: pointer;
       padding: 0;
-      transition: all 0.3s ease;
+      transition: all 0.35s ease;
     }
 
     .carousel-dot.active {
@@ -666,6 +802,13 @@
       border-radius: var(--radius-md);
       padding: 32px 28px;
       position: relative;
+      transition: var(--transition);
+    }
+
+    .step-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(197, 179, 134, 0.4);
+      transform: translateY(-4px);
     }
 
     .step-num {
@@ -706,11 +849,20 @@
       transition: var(--transition);
     }
 
+    .price-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 52px -18px rgba(32, 45, 16, 0.14);
+    }
+
     .price-card.featured {
       background: var(--brera-dark);
       color: #ffffff;
       border-color: var(--brera-dark);
       box-shadow: 0 28px 60px -18px rgba(32, 45, 16, 0.35);
+    }
+
+    .price-card.featured:hover {
+      box-shadow: 0 34px 70px -16px rgba(32, 45, 16, 0.46);
     }
 
     .price-card.featured h3,
@@ -808,6 +960,14 @@
       font-size: 0.92rem;
     }
 
+    .comparison-table tbody tr {
+      transition: background-color 0.2s ease;
+    }
+
+    .comparison-table tbody tr:hover {
+      background-color: rgba(241, 239, 232, 0.55);
+    }
+
     .comparison-table thead th {
       background: var(--brera-subtle);
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -880,8 +1040,13 @@
       transition: var(--transition);
     }
 
+    .faq-item:hover {
+      border-color: var(--brera-border-strong);
+    }
+
     .faq-item.active {
       border-color: var(--brera-dark);
+      box-shadow: 0 10px 26px -14px rgba(32, 45, 16, 0.09);
     }
 
     .faq-question {
@@ -1140,7 +1305,7 @@
 <body>
 
   <!-- ==================== HEADER ==================== -->
-  <header class="navbar">
+  <header class="navbar" id="mainNavbar">
     <div class="container navbar-inner">
       <a href="https://www.breragroup.com.br/klinova" class="brand-lockup" aria-label="Klinova by Brera Group">
         <span class="klinova-wordmark">KLINOVA</span>
@@ -1171,7 +1336,7 @@
   <!-- ==================== 1. TOPO (HERO) ==================== -->
   <section class="hero">
     <div class="container hero-grid">
-      <div>
+      <div class="reveal visible">
         <div class="seal-badge">BLACK FRIDAY KLINOVA • 50% OFF VITALÍCIO</div>
         <h1>Seu consultório em conformidade, sem complicação.</h1>
         <p class="hero-subtitle">
@@ -1194,7 +1359,7 @@
       </div>
 
       <!-- Painel Visual da Plataforma -->
-      <div class="ui-preview" aria-hidden="true">
+      <div class="ui-preview reveal delay-1" aria-hidden="true">
         <div class="ui-topbar">
           <div class="ui-dots">
             <span></span><span></span><span></span>
@@ -1257,25 +1422,25 @@
   <!-- ==================== 2. O PROBLEMA ==================== -->
   <section class="section problem-section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <span class="section-eyebrow">A REALIDADE DO CONSULTÓRIO</span>
         <h2 class="section-title">Atender já dá trabalho. Você não precisa viver com medo de errar.</h2>
       </div>
 
       <div class="problem-grid">
-        <div class="problem-card">
+        <div class="problem-card spotlight-card reveal delay-1">
           <span class="problem-tag">Documentos</span>
           <h3>Insegurança técnica na emissão</h3>
           <p>“Declaração, atestado, relatório, laudo: qual modelo usar e quais itens são obrigatórios pela Resolução CFP 06/2019?”</p>
         </div>
 
-        <div class="problem-card">
+        <div class="problem-card spotlight-card reveal delay-2">
           <span class="problem-tag">Sigilo</span>
           <h3>Vulnerabilidade de dados sensíveis</h3>
           <p>“Onde ficam as evoluções e fichas de anamnese dos seus pacientes e como comprovar conformidade com a LGPD?”</p>
         </div>
 
-        <div class="problem-card">
+        <div class="problem-card spotlight-card reveal delay-3">
           <span class="problem-tag">Fiscal</span>
           <h3>Desorganização financeira e contábil</h3>
           <p>“Sessões avulsas, pacotes, Pix e recibos espalhados entre conversas de WhatsApp, cadernos e planilhas.”</p>
@@ -1287,13 +1452,13 @@
   <!-- ==================== 3. A SOLUÇÃO & CARROSSEL POR DENTRO ==================== -->
   <section id="solucao" class="section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <span class="section-eyebrow">A SOLUÇÃO KLINOVA</span>
         <h2 class="section-title">Estrutura completa para você focar exclusivamente na clínica.</h2>
       </div>
 
       <div class="solution-grid">
-        <div class="solution-card">
+        <div class="solution-card spotlight-card reveal delay-1">
           <div class="solution-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -1308,7 +1473,7 @@
           </div>
         </div>
 
-        <div class="solution-card">
+        <div class="solution-card spotlight-card reveal delay-2">
           <div class="solution-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -1321,7 +1486,7 @@
           </div>
         </div>
 
-        <div class="solution-card">
+        <div class="solution-card spotlight-card reveal delay-1">
           <div class="solution-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
@@ -1334,7 +1499,7 @@
           </div>
         </div>
 
-        <div class="solution-card">
+        <div class="solution-card spotlight-card reveal delay-2">
           <div class="solution-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -1351,7 +1516,7 @@
       </div>
 
       <!-- Carrossel Minimalista "Conheça o Klinova por dentro" -->
-      <div id="por-dentro" class="showcase-minimal">
+      <div id="por-dentro" class="showcase-minimal reveal">
         <div class="showcase-minimal-header">
           <span class="section-eyebrow" style="margin-bottom: 8px;">CONHEÇA O KLINOVA POR DENTRO</span>
           <h3>Interface limpa, silenciosa e projetada para reduzir a carga mental.</h3>
@@ -1384,6 +1549,10 @@
               <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
           </button>
+
+          <div class="carousel-progress-wrap">
+            <div class="carousel-progress-bar" id="carouselProgressBar"></div>
+          </div>
         </div>
 
         <div class="carousel-footer">
@@ -1404,23 +1573,23 @@
   <!-- ==================== 4. COMO FUNCIONA ==================== -->
   <section id="como-funciona" class="steps-section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <span class="section-eyebrow">COMO FUNCIONA</span>
         <h2 class="section-title">Três passos para organizar toda a rotina do consultório.</h2>
       </div>
 
       <div class="steps-grid">
-        <div class="step-card">
+        <div class="step-card reveal delay-1">
           <span class="step-num">01.</span>
           <p>Crie sua conta gratuita de 7 dias, cadastre seus pacientes e organize a agenda com lembretes no WhatsApp e Google Agenda.</p>
         </div>
 
-        <div class="step-card">
+        <div class="step-card reveal delay-2">
           <span class="step-num">02.</span>
           <p>Registre fichas de anamnese, evoluções criptografadas (em rascunho ou assinadas) e anexe documentos ao prontuário.</p>
         </div>
 
-        <div class="step-card">
+        <div class="step-card reveal delay-3">
           <span class="step-num">03.</span>
           <p>Emita documentos técnicos na Resolução CFP 06/2019 e feche o mês com o relatório fiscal pronto para o contador.</p>
         </div>
@@ -1431,7 +1600,7 @@
   <!-- ==================== 5. PLANOS ==================== -->
   <section id="planos" class="section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <span class="section-eyebrow">PLANOS E INVESTIMENTO • BLACK FRIDAY</span>
         <h2 class="section-title">Comece com 7 dias grátis e trave 50% OFF vitalício.</h2>
       </div>
@@ -1439,7 +1608,7 @@
       <!-- Cards Principais de Preço (Sem Poluição Visual) -->
       <div class="pricing-cards">
         <!-- Plano Essencial -->
-        <div class="price-card">
+        <div class="price-card spotlight-card reveal delay-1">
           <div>
             <span class="bf-badge">Black Friday 50% OFF • 7 Dias Grátis</span>
             <h3>Essencial</h3>
@@ -1457,7 +1626,7 @@
         </div>
 
         <!-- Plano Profissional -->
-        <div class="price-card featured">
+        <div class="price-card featured reveal delay-2">
           <div>
             <span class="bf-badge">Black Friday 50% OFF • Mais Completo</span>
             <h3>Profissional</h3>
@@ -1476,7 +1645,7 @@
       </div>
 
       <!-- Tabela Comparativa Detalhada e Alinhada com o Produto -->
-      <div class="table-wrapper">
+      <div class="table-wrapper reveal">
         <table class="comparison-table">
           <thead>
             <tr>
@@ -1545,7 +1714,7 @@
         </table>
       </div>
 
-      <div class="pricing-footnote">
+      <div class="pricing-footnote reveal">
         <p><strong>Opção Anual com 2 meses grátis:</strong> R$ 490/ano no plano Essencial e R$ 890/ano no plano Profissional.</p>
         <p>*Em liberação para assinantes do Plano Profissional: emissão automática integrada de NFS-e (PJ).</p>
       </div>
@@ -1555,12 +1724,12 @@
   <!-- ==================== 6. PERGUNTAS FREQUENTES ==================== -->
   <section id="faq" class="section faq-section">
     <div class="container">
-      <div class="section-header" style="margin: 0 auto 48px; text-align: center;">
+      <div class="section-header reveal" style="margin: 0 auto 48px; text-align: center;">
         <span class="section-eyebrow">TIRE SUAS DÚVIDAS</span>
         <h2 class="section-title">Perguntas frequentes</h2>
       </div>
 
-      <div class="faq-list">
+      <div class="faq-list reveal">
         <div class="faq-item active">
           <button class="faq-question">
             <span>Como funcionam os 7 dias grátis e a promoção de Black Friday (50% OFF)?</span>
@@ -1663,7 +1832,7 @@
   <!-- ==================== 7. FORMULÁRIO INTEGRADO ==================== -->
   <section id="formulario" class="section">
     <div class="container">
-      <div class="form-wrapper">
+      <div class="form-wrapper reveal">
         <span class="section-eyebrow">ATENDIMENTO &amp; CONDIÇÃO DE LANÇAMENTO</span>
         <h2 class="section-title" style="font-size: 1.95rem; margin-bottom: 10px;">Fale com nossa equipe ou solicite sua migração</h2>
         <p style="color: var(--brera-muted);">
@@ -1781,9 +1950,10 @@
 
   <!-- ==================== SCRIPTS ==================== -->
   <script>
-    // 1. Menu Mobile
+    // 1. Menu Mobile & Navbar Dinâmica ao Rolar
     const mobileToggle = document.getElementById('mobileToggle');
     const navLinks = document.getElementById('navLinks');
+    const mainNavbar = document.getElementById('mainNavbar');
 
     mobileToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
@@ -1795,7 +1965,41 @@
       });
     });
 
-    // 2. Carrossel Deslizante Automático "Conheça o Klinova por dentro"
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 24) {
+        mainNavbar.classList.add('scrolled');
+      } else {
+        mainNavbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // 2. Scroll Reveal Suave (IntersectionObserver)
+    const revealElements = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+      revealElements.forEach(el => el.classList.add('visible'));
+    }
+
+    // 3. Efeito Spotlight Sutil nos Cards
+    document.querySelectorAll('.spotlight-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+        card.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+      });
+    });
+
+    // 4. Carrossel Deslizante Automático com Barra de Progresso
     const slideCaptions = [
       'Visão executiva da clínica com evolução financeira, filtros por modalidade e taxa de adimplência.',
       'Carteira de pacientes ativos e arquivados com termo LGPD e ficha de Anamnese criptografada.',
@@ -1809,59 +2013,63 @@
     const carouselCaption = document.getElementById('carouselCaption');
     const carouselDots = document.querySelectorAll('.carousel-dot');
     const carouselStage = document.getElementById('klinovaCarousel');
-    let autoSlideTimer = null;
+    const progressBar = document.getElementById('carouselProgressBar');
+
+    const SLIDE_DURATION = 4500;
+    let progressElapsed = 0;
+    let progressInterval = null;
+    let isCarouselPaused = false;
 
     function updateCarouselUI() {
       if (carouselTrack) {
         carouselTrack.style.transform = 'translateX(-' + (currentSlideIndex * 100) + '%)';
       }
       if (carouselCaption) {
-        carouselCaption.textContent = slideCaptions[currentSlideIndex];
+        carouselCaption.style.opacity = '0';
+        setTimeout(() => {
+          carouselCaption.textContent = slideCaptions[currentSlideIndex];
+          carouselCaption.style.opacity = '1';
+        }, 160);
       }
       carouselDots.forEach((dot, idx) => {
         dot.classList.toggle('active', idx === currentSlideIndex);
       });
+      progressElapsed = 0;
+      if (progressBar) progressBar.style.width = '0%';
     }
 
     function moveSlide(step) {
       currentSlideIndex = (currentSlideIndex + step + totalSlides) % totalSlides;
       updateCarouselUI();
-      resetAutoSlide();
     }
 
     function goToSlide(index) {
       currentSlideIndex = index;
       updateCarouselUI();
-      resetAutoSlide();
     }
 
-    function startAutoSlide() {
-      stopAutoSlide();
-      autoSlideTimer = setInterval(() => {
-        currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
-        updateCarouselUI();
-      }, 4500);
-    }
-
-    function stopAutoSlide() {
-      if (autoSlideTimer) {
-        clearInterval(autoSlideTimer);
-        autoSlideTimer = null;
-      }
-    }
-
-    function resetAutoSlide() {
-      startAutoSlide();
+    function startCarouselLoop() {
+      if (progressInterval) clearInterval(progressInterval);
+      progressInterval = setInterval(() => {
+        if (isCarouselPaused) return;
+        progressElapsed += 50;
+        const pct = Math.min(100, (progressElapsed / SLIDE_DURATION) * 100);
+        if (progressBar) progressBar.style.width = pct + '%';
+        if (progressElapsed >= SLIDE_DURATION) {
+          currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+          updateCarouselUI();
+        }
+      }, 50);
     }
 
     if (carouselStage) {
-      carouselStage.addEventListener('mouseenter', stopAutoSlide);
-      carouselStage.addEventListener('mouseleave', startAutoSlide);
+      carouselStage.addEventListener('mouseenter', () => { isCarouselPaused = true; });
+      carouselStage.addEventListener('mouseleave', () => { isCarouselPaused = false; });
 
-      // Suporte a deslizar o dedo (swipe) no celular
       let touchStartX = 0;
       carouselStage.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
+        isCarouselPaused = true;
       }, { passive: true });
 
       carouselStage.addEventListener('touchend', (e) => {
@@ -1869,12 +2077,13 @@
         if (Math.abs(diff) > 40) {
           moveSlide(diff > 0 ? 1 : -1);
         }
+        isCarouselPaused = false;
       }, { passive: true });
     }
 
-    startAutoSlide();
+    startCarouselLoop();
 
-    // 3. Acordeão FAQ
+    // 5. Acordeão FAQ
     document.querySelectorAll('.faq-question').forEach(button => {
       button.addEventListener('click', () => {
         const faqItem = button.parentElement;
@@ -1893,7 +2102,7 @@
       });
     });
 
-    // 4. Pré-seleciona o plano no formulário quando a pessoa clica no card de preço
+    // 6. Pré-seleciona o plano no formulário quando a pessoa clica no card de preço
     function selecionarPlano(plano) {
       const select = document.getElementById('plano_interesse');
       if (!select) return;
@@ -1904,7 +2113,7 @@
       }
     }
 
-    // 5. Captura Automática de UTMs da Campanha e Repasse para os Botões do SaaS
+    // 7. Captura Automática de UTMs da Campanha e Repasse para os Botões do SaaS
     (function captureAndPropagateUTMs() {
       const params = new URLSearchParams(window.location.search);
       const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
@@ -1924,7 +2133,7 @@
       }
     })();
 
-    // 6. Helper de Rastreamento (Meta Pixel & Google Analytics)
+    // 8. Helper de Rastreamento (Meta Pixel & Google Analytics)
     function trackKlinovaEvent(eventName, payload) {
       try {
         if (typeof window.fbq === 'function') {
@@ -1939,14 +2148,14 @@
       } catch (e) {}
     }
 
-    // 7. Máscara de WhatsApp
+    // 9. Máscara de WhatsApp
     const whatsappInput = document.getElementById('whatsapp');
     whatsappInput.addEventListener('input', (e) => {
       let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
       e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
     });
 
-    // 8. Envio do Formulário (Web3Forms Corporativo + Gatilho de Conversão)
+    // 10. Envio do Formulário (Web3Forms Corporativo + Gatilho de Conversão)
     const klinovaForm = document.getElementById('klinovaForm');
     const formFeedback = document.getElementById('formFeedback');
     const klinovaSubmitBtn = document.getElementById('klinovaSubmitBtn');
