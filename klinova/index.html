@@ -2158,6 +2158,9 @@
           if (eventName.indexOf('StartTrial') === 0) {
             window.fbq('track', 'InitiateCheckout', payload || {});
           }
+          if (eventName === 'LeadFormSubmitted') {
+            window.fbq('track', 'Lead', payload || {});
+          }
         }
         if (typeof window.gtag === 'function') {
           window.gtag('event', eventName, payload || {});
