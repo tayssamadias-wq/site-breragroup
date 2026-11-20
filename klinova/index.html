@@ -2328,6 +2328,59 @@
     });
   </script>
 
+  // 11. Alternador de Cobrança Mensal / Anual e Links Diretos do Asaas
+    const ASAAS_LINKS = {
+      monthly: {
+        essencial: 'https://www.asaas.com/000/c/ekxh4t14b49km8w4',
+        profissional: 'https://www.asaas.com/000/c/2kxhxuqsi4c4od9z'
+      },
+      annual: {
+        essencial: 'https://www.asaas.com/000/c/c8brulrv5sf10ve6',
+        profissional: 'https://www.asaas.com/000/c/z8w3gmna52vubxi7'
+      }
+    };
+
+    function setBillingCycle(cycle) {
+      const isAnnual = cycle === 'annual';
+      const btnMonthly = document.getElementById('btnMonthly');
+      const btnAnnual = document.getElementById('btnAnnual');
+
+      if (btnMonthly) btnMonthly.classList.toggle('active', !isAnnual);
+      if (btnAnnual) btnAnnual.classList.toggle('active', isAnnual);
+
+      const oldEss = document.getElementById('oldPriceEssencial');
+      const valEss = document.getElementById('priceValueEssencial');
+      const badgeEss = document.getElementById('badgeEssencial');
+      const linkEss = document.getElementById('asaasLinkEssencial');
+
+      const oldPro = document.getElementById('oldPriceProfissional');
+      const valPro = document.getElementById('priceValueProfissional');
+      const badgePro = document.getElementById('badgeProfissional');
+      const linkPro = document.getElementById('asaasLinkProfissional');
+
+      if (isAnnual) {
+        if (badgeEss) badgeEss.textContent = 'Plano Anual • 2 Meses Grátis';
+        if (oldEss) oldEss.textContent = 'Equivalente a R$ 40,83/mês';
+        if (valEss) valEss.innerHTML = 'R$ 490<span>/ano</span>';
+        if (linkEss) linkEss.href = ASAAS_LINKS.annual.essencial;
+
+        if (badgePro) badgePro.textContent = 'Plano Anual • 2 Meses Grátis';
+        if (oldPro) oldPro.textContent = 'Equivalente a R$ 74,17/mês';
+        if (valPro) valPro.innerHTML = 'R$ 890<span>/ano</span>';
+        if (linkPro) linkPro.href = ASAAS_LINKS.annual.profissional;
+      } else {
+        if (badgeEss) badgeEss.textContent = 'Black Friday 50% OFF • 7 Dias Grátis';
+        if (oldEss) oldEss.textContent = 'De R$ 98/mês';
+        if (valEss) valEss.innerHTML = 'R$ 49<span>/mês</span>';
+        if (linkEss) linkEss.href = ASAAS_LINKS.monthly.essencial;
+
+        if (badgePro) badgePro.textContent = 'Black Friday 50% OFF • Mais Completo';
+        if (oldPro) oldPro.textContent = 'De R$ 178/mês';
+        if (valPro) valPro.innerHTML = 'R$ 89<span>/mês</span>';
+        if (linkPro) linkPro.href = ASAAS_LINKS.monthly.profissional;
+      }
+    }
+
   <!-- Integração Automática Klinova -> Make (Porta 1: Teste Gratuito 7 Dias) -->
 <script>
   (function () {
