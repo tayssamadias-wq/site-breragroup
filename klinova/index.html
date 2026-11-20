@@ -1711,18 +1711,32 @@
       </div>
 
       <!-- Cards Principais de Preço (Sem Poluição Visual) -->
+      <!-- Seletor Mensal / Anual -->
+      <div class="billing-toggle-wrap reveal" role="group" aria-label="Periodicidade dos planos">
+        <button type="button" id="btnMonthly" class="billing-btn active" onclick="setBillingCycle('monthly')">
+          Mensal · 50% OFF
+        </button>
+        <button type="button" id="btnAnnual" class="billing-btn" onclick="setBillingCycle('annual')">
+          Anual <span class="billing-save-pill">2 meses grátis</span>
+        </button>
+      </div>
+
+      <!-- Cards Principais de Preço -->
       <div class="pricing-cards">
         <!-- Plano Essencial -->
         <div class="price-card spotlight-card reveal delay-1">
           <div>
-            <span class="bf-badge">Black Friday 50% OFF • 7 Dias Grátis</span>
+            <span id="badgeEssencial" class="bf-badge">Black Friday 50% OFF • 7 Dias Grátis</span>
             <h3>Essencial</h3>
-            <span class="old-price">De R$ 98/mês</span>
-            <div class="price-value">R$ 49<span>/mês</span></div>
+            <span id="oldPriceEssencial" class="old-price">De R$ 98/mês</span>
+            <div id="priceValueEssencial" class="price-value">R$ 49<span>/mês</span></div>
           </div>
           <div class="card-actions">
             <a href="https://klinova.breragroup.com.br" class="btn btn-outline app-direct-link" style="width:100%;" onclick="trackKlinovaEvent('StartTrialEssencial')">
               Testar 7 dias grátis no Essencial →
+            </a>
+            <a id="asaasLinkEssencial" href="https://www.asaas.com/000/c/ekxh4t14b49km8w4" target="_blank" rel="noopener noreferrer" class="direct-pay-link" onclick="trackKlinovaEvent('DirectCheckoutEssencial')">
+              Já estou no teste ou quero assinar agora →
             </a>
             <a href="#formulario" class="card-sublink" onclick="selecionarPlano('Essencial')">
               Ou falar com especialista / tirar dúvidas
@@ -1733,14 +1747,17 @@
         <!-- Plano Profissional -->
         <div class="price-card featured reveal delay-2">
           <div>
-            <span class="bf-badge">Black Friday 50% OFF • Mais Completo</span>
+            <span id="badgeProfissional" class="bf-badge">Black Friday 50% OFF • Mais Completo</span>
             <h3>Profissional</h3>
-            <span class="old-price">De R$ 178/mês</span>
-            <div class="price-value">R$ 89<span>/mês</span></div>
+            <span id="oldPriceProfissional" class="old-price">De R$ 178/mês</span>
+            <div id="priceValueProfissional" class="price-value">R$ 89<span>/mês</span></div>
           </div>
           <div class="card-actions">
             <a href="https://klinova.breragroup.com.br" class="btn btn-primary app-direct-link" style="background:#fff; color:var(--brera-dark); width:100%;" onclick="trackKlinovaEvent('StartTrialProfissional')">
               Testar 7 dias grátis no Profissional →
+            </a>
+            <a id="asaasLinkProfissional" href="https://www.asaas.com/000/c/2kxhxuqsi4c4od9z" target="_blank" rel="noopener noreferrer" class="direct-pay-link" onclick="trackKlinovaEvent('DirectCheckoutProfissional')">
+              Já estou no teste ou quero assinar agora →
             </a>
             <a href="#formulario" class="card-sublink" onclick="selecionarPlano('Profissional')">
               Solicitar migração gratuita / falar com a equipe
@@ -1749,6 +1766,10 @@
         </div>
       </div>
 
+      <p class="email-match-note reveal">
+        Já criou sua conta gratuita? Utilize o <strong>mesmo e-mail</strong> no pagamento para liberar sua assinatura automaticamente no seu acesso atual.
+      </p>
+      
       <!-- Tabela Comparativa Detalhada e Alinhada com o Produto -->
       <div class="table-wrapper reveal">
         <table class="comparison-table">
