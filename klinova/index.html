@@ -937,6 +937,94 @@
       color: rgba(255, 255, 255, 0.75);
     }
 
+    /* Seletor Mensal / Anual e Checkout Direto Asaas */
+    .billing-toggle-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px;
+      border-radius: 999px;
+      background: var(--brera-subtle);
+      border: 1px solid var(--brera-border-strong);
+      margin-bottom: 24px;
+    }
+
+    .billing-btn {
+      border: none;
+      background: transparent;
+      color: var(--brera-muted);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .billing-btn.active {
+      background: var(--brera-dark);
+      color: #ffffff;
+      box-shadow: 0 6px 16px -6px rgba(32, 45, 16, 0.35);
+    }
+
+    .billing-save-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(20, 69, 47, 0.12);
+      color: var(--klinova-green);
+    }
+
+    .billing-btn.active .billing-save-pill {
+      background: var(--brera-gold);
+      color: var(--brera-deep);
+    }
+
+    .direct-pay-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--klinova-green);
+      background: rgba(20, 69, 47, 0.06);
+      border: 1px solid rgba(20, 69, 47, 0.2);
+    }
+
+    .direct-pay-link:hover {
+      background: rgba(20, 69, 47, 0.12);
+      border-color: var(--klinova-green);
+    }
+
+    .price-card.featured .direct-pay-link {
+      color: var(--brera-gold);
+      background: rgba(197, 179, 134, 0.1);
+      border-color: rgba(197, 179, 134, 0.32);
+    }
+
+    .price-card.featured .direct-pay-link:hover {
+      background: rgba(197, 179, 134, 0.18);
+      border-color: var(--brera-gold);
+    }
+
+    .email-match-note {
+      font-size: 0.86rem;
+      color: var(--brera-muted);
+      background: var(--brera-subtle);
+      border-left: 3px solid var(--klinova-green);
+      padding: 12px 16px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 28px;
+    }
+
     /* Tabela Comparativa */
     .table-wrapper {
       background: var(--brera-surface);
