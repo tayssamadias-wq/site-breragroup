@@ -2218,5 +2218,49 @@
       }
     });
   </script>
+
+  <!-- Integração Automática Klinova -> Make (Porta 1: Teste Gratuito 7 Dias) -->
+<script>
+  (function () {
+    const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/2n9wg3t53uxsu555k5lvu31yarjt9ter';
+    const klinovaForm = document.getElementById('klinovaForm');
+
+    if (!klinovaForm) return;
+
+    klinovaForm.addEventListener('submit', function () {
+      const formData = new FormData(klinovaForm);
+      const rawWhatsapp = (formData.get('whatsapp') || '').toString();
+      const digitsOnly = rawWhatsapp.replace(/\D/g, '');
+      const whatsapp55 = digitsOnly.startsWith('55') ? digitsOnly : '55' + digitsOnly;
+
+      const payload = {
+        origem: 'landing_page_klinova',
+        data_cadastro: new Date().toISOString(),
+        nome: (formData.get('nome') || '').toString().trim(),
+        email: (formData.get('email') || '').toString().trim(),
+        whatsapp_original: rawWhatsapp,
+        whatsapp_55: whatsapp55,
+        crp: (formData.get('crp') || 'Não informado').toString().trim(),
+        pacientes_ativos: (formData.get('pacientes_ativos') || '').toString(),
+        plano_interesse: (formData.get('plano_interesse') || '').toString(),
+        ferramenta_atual: (formData.get('ferramenta_atual') || '').toString().trim(),
+        maior_dor: (formData.get('maior_dor') || 'Nenhuma observação').toString().trim(),
+        utm_source: (formData.get('utm_source') || '').toString(),
+        utm_medium: (formData.get('utm_medium') || '').toString(),
+        utm_campaign: (formData.get('utm_campaign') || '').toString()
+      };
+
+      fetch(MAKE_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        keepalive: true
+      }).catch(function (err) {
+        console.warn('Aviso envio Make:', err);
+      });
+    }, true);
+  })();
+</script>
+  
 </body>
 </html>
